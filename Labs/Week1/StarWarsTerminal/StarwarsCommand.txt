@@ -1,0 +1,398 @@
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal
+$ rm -rf StarWarsTerminal
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal
+$ mkdir Labs
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal
+$ cd Labs
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/Labs
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev
+$ r -rf StarWarsTerminal
+bash: r: command not found
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev
+$ cd dev
+bash: cd: dev: No such file or directory
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev
+$ cd StarWarsTerminal
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal
+$ ls
+Labs/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal
+$ rm -rf Labs
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal
+$ ls
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal
+$ mkdir galaxy-far-far-away && cd galaxy-far-far-away
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ mkdir death_star && cd death_star
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star
+$ touch darth_vader.txt && touch princess_leia.txt && touch storm_trooper.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star
+$ ls
+darth_vader.txt  princess_leia.txt  storm_trooper.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ mkdir tatooine && cd tatooine && touch luke.txt && touch ben_kenobi.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ ls
+ben_kenobi.txt  luke.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ mkdir millenium_falcon && cd millenium_falcon && touch han_solo.txt && touch chewbacca.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine/millenium_falcon
+$ ls
+chewbacca.txt  han_solo.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine/millenium_falcon
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ ls
+ben_kenobi.txt  luke.txt  millenium_falcon/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ mv ben_kenobi.txt obi_wan.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ ls
+luke.txt  millenium_falcon/  obi_wan.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ ls
+death_star/  tatooine/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ cp death_star/stormtrooper.txt tatooine/
+cp: cannot stat 'death_star/stormtrooper.txt': No such file or directory
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ cp /death_star/storm_trooper.txt tatooine/
+cp: cannot stat '/death_star/storm_trooper.txt': No such file or directory
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ cp death_star/storm_trooper.txt tatooine/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ cd tatooine
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ ls
+luke.txt  millenium_falcon/  obi_wan.txt  storm_trooper.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ cd death_star
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star
+$ ls
+darth_vader.txt  princess_leia.txt  storm_trooper.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ ls
+death_star/  tatooine/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ cd tatooine
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ ls
+luke.txt  millenium_falcon/  obi_wan.txt  storm_trooper.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ mv luke.txt millenium_falcon/luke.txt && mv obi_wan.txt millenium_falcon/obi_wan.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ ls
+millenium_falcon/  storm_trooper.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ cd milenium_falcon
+bash: cd: milenium_falcon: No such file or directory
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ ls
+millenium_falcon/  storm_trooper.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ cs millenium_falcon
+bash: cs: command not found
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ cd millenium_falcon
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine/millenium_falcon
+$ ls
+chewbacca.txt  han_solo.txt  luke.txt  obi_wan.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine/millenium_falcon
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ ^C
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$
+
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ ls
+millenium_falcon/  storm_trooper.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ mv millenium_falcon/ ../
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/tatooine
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ ls
+death_star/  millenium_falcon/  tatooine/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ mv millenium_falcon/ death_star/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ cd death_star/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star
+$ ls
+darth_vader.txt  millenium_falcon/  princess_leia.txt  storm_trooper.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star
+$ mv princess_leia.txt millenium_falcon/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star
+$ ls
+darth_vader.txt  millenium_falcon/  storm_trooper.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star
+$ cd millenium_falcon/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star/millenium_falcon
+$ ls
+chewbacca.txt  han_solo.txt  luke.txt  obi_wan.txt  princess_leia.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star/millenium_falcon
+$
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star/millenium_falcon
+$ ls
+chewbacca.txt  han_solo.txt  luke.txt  obi_wan.txt  princess_leia.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star/millenium_falcon
+$ rm obi_wan.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star/millenium_falcon
+$ ls
+chewbacca.txt  han_solo.txt  luke.txt  princess_leia.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away/death_star/millenium_falcon
+$ cd ../../
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$
+
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ ls
+death_star/  tatooine/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal/galaxy-far-far-away
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/StarWarsTerminal
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev
+$ ls
+Perscholas/  StarWarsTerminal/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev
+$ mv StarWarsTerminal/ Perscholas/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev
+$ cd Perscholas/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas
+$ ls
+Homework/  Labs/  StarWarsTerminal/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas
+$ mv StarWarsTerminal/ Labs/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas
+$ cd Labs/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs
+$ ls
+StarWarsTerminal/  Week1/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs
+$ mv StarWarsTerminal/ Week1/ && cd Week1/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1
+$ ls
+StarWarsTerminal/  StarwarsCommand.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1
+$
+
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1
+$ ls
+StarWarsTerminal/  StarwarsCommand.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1
+$ cd StarWars
+StarWarsTerminal/    StarwarsCommand.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1
+$ cd StarWarsTerminal/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal
+$ ls
+galaxy-far-far-away/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1
+$ ls
+StarWarsTerminal/  StarwarsCommand.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1
+$ mv StarwarsCommand.txt StarWarsTerminal/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1
+$ cd StarWarsTerminal/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal
+$ ls
+StarwarsCommand.txt  galaxy-far-far-away/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal
+$ cd galaxy-far-far-away/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$ cd yavin_4 && mkdir x_wing
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/yavin_4
+$ mv millenium_falcon/princess_leia.txt ../ && mv millenium_falcon/luke.txt ../x_wing/ && mv millenium_falcon ../
+mv: cannot move 'millenium_falcon/luke.txt' to '../x_wing/': No such file or directory
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/yavin_4
+$ mv ../princess_leia.txt ./
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/yavin_4
+$ mv millenium_falcon/luke.txt ./x_wing/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/yavin_4
+$ mv millenium_falcon/ ../ && mv x_wing/ ../
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/yavin_4
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$ ls
+death_star/  millenium_falcon/  tatooine/  x_wing/  yavin_4/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$ cd death_star/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/death_star
+$ mkdir tie_fighter_1 tie_fighter_2 tie_fighter_3
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/death_star
+$ mv darth_vader.txt tie_fighter_1/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/death_star
+$ cp storm_trooper.txt tie_fighter_2 tie_fighter_3
+cp: -r not specified; omitting directory 'tie_fighter_2'
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/death_star
+$ cp storm_trooper.txt tie_fighter_2/ tie_fighter_3/
+cp: -r not specified; omitting directory 'tie_fighter_2/'
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/death_star
+$ cp storm_trooper.txt tie_fighter_2/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/death_star
+$ cp storm_trooper.txt tie_fighter_3/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/death_star
+$ ls
+storm_trooper.txt  tie_fighter_1/  tie_fighter_2/  tie_fighter_3/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/death_star
+$ mv tie_fighter_1/ ../ && mv tie_fighter_2/ ../ && mv tie_fighter_3/ ../
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/death_star
+$
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/death_star
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$ ls
+death_star/        tatooine/       tie_fighter_2/  x_wing/
+millenium_falcon/  tie_fighter_1/  tie_fighter_3/  yavin_4/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$ rm -rf t
+tatooine/      tie_fighter_1/ tie_fighter_2/ tie_fighter_3/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$ rm -rf tie_fighter_2/ && rm -rf tie_fighter_3/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$ cd x_wing/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/x_wing
+$ touch the_force.txt
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away/x_wing
+$ cd ..
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$ rm -rf death_star/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$ mv x_wing/ yavin_4/ && mv millenium_falcon/ yavin_4/
+
+norma@NORMAN MINGW64 ~/OneDrive/Desktop/Dev/Perscholas/Labs/Week1/StarWarsTerminal/galaxy-far-far-away
+$
+
+
+

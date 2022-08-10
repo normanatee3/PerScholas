@@ -41,7 +41,7 @@
 
 let avFirst = (4 + 10 + 22 - 30 + 55) / 5
 let avSecond = (68 + 7 - 22 + 9 +100) / 5
-let avLast = (avFirst + avSecond) 
+let avLast = (avFirst + avSecond) / 2
 console.log(avLast)
 
 // returns 22.2999 instead of 22.3

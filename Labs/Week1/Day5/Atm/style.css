@@ -1,0 +1,198 @@
+.atmContainer{
+    border: solid black;
+    height: 82vw;
+    margin: 1em;
+    background-color: lightslategrey;
+    max-width: 400px;
+    max-height: 500px;
+    
+}
+
+.atmTitle{
+    border: solid rgb(160, 172, 199);
+    font-size: 30px;
+    text-align: center;
+    color: blue;
+    border-width: 6px;
+    max-height: 40px;
+    
+}
+
+.atmBody{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btnLeft{
+    border: solid rgb(160, 172, 199);
+    height: 30vw;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-height: 200px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.screen{
+    border: solid blue;
+    height: 30vw;
+    width: 60%;
+    margin: 5px;
+    background-color: black;
+    max-height: 200px;
+    border-radius: 15px;
+}
+
+.btnRight{
+    border: solid rgb(160, 172, 199);
+    height: 30vw;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-height: 200px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.btn{
+    margin: 4px;
+    border: solid lightslategray;
+    height: 20%;
+    
+}
+
+.atmMid{
+    display: flex;
+    justify-content: space-evenly; 
+    height: 30%;
+    border: solid rgb(160, 172, 199);
+    border-radius: 10px 10px 0px 0px;
+}
+.atmLow{
+    display: flex;
+    justify-content: space-evenly;  
+    height: 15%;
+    border: solid rgb(160, 172, 199);
+    border-radius: 0px 0px 10px 10px;
+}
+.padLeft{
+    border: solid lightslategray;
+    height: 80%;
+    width: 25%;
+    padding: 5px;
+    margin: 5px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.padReceipt{
+    border: solid lightslategray;
+    height: 4px;
+    height: 50%;
+    width: 100%;
+}
+.atmKeypad{
+    border: solid silver;
+    height: 80%;
+    width: 50%;
+    padding: 5px;
+    margin: 5px;  
+    display: grid;
+    grid-template-columns: 18% 18% 18% 30%;
+    justify-content: center;
+    row-gap: 3%;
+    column-gap: 4%;
+    border-radius: 10px;
+}
+.keyButton{
+    border: solid lightslategray;
+    width: 100%;
+    border-radius: 10px;
+}
+.keys{
+    height: 100%;
+    width: 100%;
+    font-size: 8px;
+    text-align: center;
+    background-color: silver;
+    border-color: lightslategray;
+    border-radius: 10px;
+    color: white;
+    text-decoration: underline;
+    font-weight: 800;
+}
+.keys:hover{
+    background-color: aquamarine;
+    border-color: lightslategray;
+}
+.keys:active{
+    background-color: black;
+}
+.interact:hover{
+    background-color: lightslategray;
+}
+.interact{
+    background-color: lightslategray;
+    border-color: lightslategray;
+    border-radius: 10px;
+}
+.padRight{
+    border: solid lightslategray;
+    height: 80%;
+    width: 25%;
+    padding: 5px;
+    margin: 5px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.padDeposit{
+    border: solid lightslategray;
+    height: 50%;
+    width: 100%;
+}
+.padCard{
+    border: solid lightslategray;
+    height: 50%;
+    width: 100%;
+}
+.cashLeft{
+    border: solid lightslategray;
+    height: 65%;
+    width: 10%;
+    padding: 5px;
+    margin: 5px;  
+}
+.cashWithdraw{
+    border: solid lightslategray;
+    height: 65%;
+    width: 80%;
+    padding: 5px;
+    margin: 5px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cashDispense{
+    border: solid lightslategray;
+    height: 50%;
+    width: 100%;
+}
+.cashRight{
+    border: solid lightslategray;
+    height: 65%;
+    width: 10%;
+    padding: 5px;
+    margin: 5px;  
+}
+.kbtnCancel:hover{
+    background-color: red;
+}
+.kbtnConfirm:hover{
+    background-color: green;
+}
+.kbtnBack:hover{
+    background-color: yellow;
+}

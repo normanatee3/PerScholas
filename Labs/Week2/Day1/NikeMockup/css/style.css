@@ -1,0 +1,195 @@
+.fullWindow{
+    max-width: 600px;
+    align-content: center;
+    margin-left: 10px;
+}
+@font-face {
+    font-family: 'nikeFont';
+    src: url(https://www.nike.com/static/ncss/4.1/dotcom/fonts/Nike-Futura.woff2);
+}
+@font-face {
+    font-family: 'nikeGlyph';
+    src: url(https://www.nike.com/assets/ncss/glyphs/2.6/fonts/nike-glyphs.woff);
+}
+@font-face {
+    font-family: 'nikeTG';
+    src: url(https://www.nike.com/static/ncss/4.1/dotcom/fonts/Nike-TG.woff2);
+}
+.navContainer{
+    /* border: solid black; */
+    height: 50px;
+    border-width: .2px;
+    display: flex;
+    justify-content: space-between;
+    /* position: fixed;
+    top: 0;
+    transition: top 0.5s; scrollbar*/
+}
+.nikeicon{
+    height: 50px;
+    margin-left: 10px;
+}
+.navIcon{
+    /*  */
+    height: 40px;
+}
+.shopIcon{
+    /*  */
+    height: 40px;
+}
+.searchIcon{
+    /*  */
+    height: 40px;
+}
+.smIcons{
+    /* border: solid purple; */
+    margin-top: 5px;
+    margin-right: 10px;
+
+}
+.icons:hover{
+border: solid black;
+border-width: 0px;
+border-radius: 50%;
+background-color: lightgray;
+}
+.topScroll{
+    text-align: center;
+    background-color: lightgray;
+    width: 100%;
+    /* margin-top: 60px; scrollbar*/
+    /* border: solid lightgray;
+    border-width: 1px; */
+}
+.mainPic{
+    width: 98%;
+    max-width: 600px;
+}
+.secondPic{
+    width: 98%;
+    max-width: 600px;
+}
+.joiner{
+    text-align: center;
+}
+.backTo{
+    font-family: 'nikeFont';
+    font-size: 40px;
+    margin-top: 0px;
+}
+.basicBtn{
+    height: 30px;
+    display:flex;
+    margin: 0px;
+    text-align: center; 
+}
+.shopBtn{
+    color: white;
+    background-color: black;
+    border-radius: 40px;
+    padding: 10px;
+    width: 50px;
+    height: 25px;
+    margin-left: 0px;
+    font-size: 20px;
+    font-family: 'nikeTG';
+}
+.schoolBtn{
+    color: white;
+    background-color: black;
+    border-radius: 40px;
+    padding: 10px;
+    width: 200px;
+    height: 25px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: 'nikeTG';
+}
+.basicText{
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-family: 'nikeTG';
+    font-weight: 100;
+    max-width: 80%;
+}
+.schoolBtn:hover, .shopBtn:hover, .shopWhite:hover{
+    background-color: darkgray;
+}
+.footWear{
+    font-family: 'nikeTG';
+    font-weight: lighter;
+}
+.imgBox2{
+    position: relative;
+    text-align: left;
+    color: white;
+}
+.bottomLeft{
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    font-family: 'nikeTG';
+}
+.shopWhite{
+    color: black;
+    background-color: white;
+    border-radius: 40px;
+    padding: 10px;
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    margin-left: 0px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    font-family: 'nikeTG';
+}
+.themeContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+.themeTab{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.themeTab:hover{
+    color:blue
+}
+.sneakerContainer{
+    border: solid red;
+    height: 600vh;
+    margin: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    
+}
+.sneakerBox{
+    border: solid blue;
+    width: 44%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+.sneakerInfoBox{
+    border: solid orange;
+    height: 75px;
+    width: 100%;
+    /* border-width: 3px; */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.sneakerInfo{
+    text-align: center;
+    background-color: #333C3F;
+    color: lemonchiffon;
+}
+.sneakerPic{
+    border: solid green;
+    /* height: width; */
+}
+.shoe{
+    width: 100%;
+}

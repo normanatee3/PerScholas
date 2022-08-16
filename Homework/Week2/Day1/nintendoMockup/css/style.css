@@ -1,0 +1,390 @@
+body{
+    overflow-x: hidden;
+}
+.titleArea{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background-color: #e60012;
+    
+}
+.titleNav{
+    margin: 0px;
+    padding: 0px;
+    background-color: #e60012;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid #96000d;
+    border-width: .1px;
+}
+.titleLogoBox{
+    margin-top: 15px;
+    
+    padding: 0px;
+    background-color: #e60012;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+.titleHeaderBox{
+    margin: 0px;
+    padding: 0px;
+    background-color: #e60012;
+    height: 120px;
+}
+.titleImage{
+    margin: 0px;
+    padding: 0px;
+    background-color: #e60012;
+    width: 100%;
+}
+.logoNav{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+.logoRacetrack{
+    height: 25px;
+}
+.logIn{
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    height: 80%;
+    
+}
+.logIn:hover{
+    background-color: #96000d;
+    
+}
+.logoGuest{
+    height: 25px;
+    margin-right: 10px;
+}
+.signUp{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.enableMotion{
+    display: flex;
+    justify-content: start;
+    align-content: flex-start;
+    height: 25px;
+}
+.playButton{
+    height: 20px;
+}
+.textMotion{
+    align-self: center;
+    color: white;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.switchBox{
+    display: flex;
+}
+.switchLogo{
+    height: 60px;
+    align-self: center;
+}
+.discover{
+    width: 65%;
+    color: white;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.play{
+    width: 65%;
+    color: white;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.playTogether{
+    width: 100%;
+}
+.invisPanel{
+    margin-top: 550px;
+}
+.gameCard{
+    height: fit-content;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, .5);
+    margin-bottom: 20px;
+    background-color: white;
+}
+.whitePanel{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+.panelOne, .panelThree{
+    position: relative;
+    right: 10px;
+    border: solid white 10px;
+}
+.panelTwo{
+    position: relative;
+    right: 10px;
+    border: solid #e60012 10px;
+}
+.redPanel{
+    background-color: #e60012;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.gameImage{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+.gameTitle{
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px 15px 0px 15px;
+    padding: 10px 10px 0px 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(81, 85, 88);
+    align-items: flex-end;
+}
+.invisTitle{
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 10px 0px 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(81, 85, 88);
+    align-items: flex-end;
+}
+.gameName{
+    /* height: 50px; */
+    width: 60%;
+}
+.buttonDigital{ 
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    align-items: center;
+    background-color: #e60012;
+    border-radius: 5px;
+}
+.invisDigital{ 
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    align-items: center;
+    background-color: #e60012;
+    border-radius: 5px;
+}
+.textDigital{
+    margin-bottom: 15px;
+    margin-left: 20px;
+    height: 50px;
+}
+.arrowDigital{
+    margin-bottom: 15px;
+    margin-right: 20px;
+    height: 50px;
+}
+.buttonPhysical{
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 15px 30px 0px 15px;
+    padding: 10px 10px 0px 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #e60012;
+    align-items: flex-end;
+}
+.invisPhysical{
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 15px 15px 10px 15px;
+    padding: 10px 10px 0px 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #e60012;
+    align-items: flex-end;
+}
+.textPhysical{
+    height: 50px;
+}
+.arrowPhysical{
+    height: 50px;
+    margin-left: 20px;
+}
+.buttonLearn{
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 15px 15px 0px 15px;
+    padding: 10px 10px 0px 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #e60012;
+    align-items: flex-end;
+}
+.btwoLearn{
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 15px 15px 0px 15px;
+    padding: 10px 10px 0px 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #e60012;
+    align-items: flex-end;
+}
+.invisLearn{
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 15px px 0px 15px;
+    padding: 10px 10px 0px 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #e60012;
+    align-items: flex-end;
+}
+.textLearn{
+    height: 70px;
+}
+.arrowLearn{
+    height: 70px;
+    margin-left: 20px;
+}
+.esrbTen{
+    height:60px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    display:flex
+    
+}
+.esrbInvis{
+    height:60px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    display:flex    
+}
+.textTen{
+    margin-left: 15px;
+    width: 30%;
+    font-size: 13px;
+    margin-bottom: 20px;
+    align-self: center;
+}
+.imgTen{
+    height: 60px;
+    padding-bottom: 20px;
+    margin-left: 25px;
+}
+.imgInvis{
+    height: 60px;
+    padding-bottom: 20px;
+    margin-left: 5px;
+}
+.yellowPanel{
+position: relative;
+background-color: rgb(194, 181, 0);
+border: 40px solid rgb(194, 181, 0);
+width: 100%;
+right: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.sales{
+    width: 65%;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+.salesText{
+    width: 65%;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+.salesImage{
+width: 65%;
+margin-right: 20px;
+}
+.online{
+    width: 70%;
+    align-self: center;
+}
+.tetris{
+    width: 30%;
+    border-radius: 3px;
+    align-self: center;
+    margin: 15px;
+    border: solid white 5px;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, .3);
+}
+.message{
+    width: 80%;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    margin-right: 20px; 
+    align-self: center;
+}
+.try{
+    width: 50%;
+    padding: 10px;
+}
+.try:hover{
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+}
+.members{
+    width: 80%;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    margin-right: 20px; 
+    align-self: center;
+}
+
+
+

@@ -14,6 +14,20 @@ body{
     background-color: #e60012;
     
 }
+.fixedtitleArea{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    background-color: #e60012;
+    z-index: 300;
+    
+}
 .titleNav{
     margin: 0px;
     padding: 0px;
@@ -193,6 +207,24 @@ body{
     background-color: #e60012;
     border-radius: 5px;
 }
+.xenoDigital{ 
+    height: 50px;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 30px;
+    margin-right: 25px;
+    margin-top: 105px;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    align-items: center;
+    background-color: #e60012;
+    border-radius: 5px;
+    z-index: 100;
+    position: relative;
+    bottom: 40px;
+}
 .invisDigital{ 
     height: 50px;
     display: flex;
@@ -210,6 +242,11 @@ body{
 .textDigital{
     margin-bottom: 15px;
     margin-left: 20px;
+    height: 50px;
+}
+.textxenoDigital{
+    margin-bottom: 5px;
+    margin-left: 10px;
     height: 50px;
 }
 .arrowDigital{
@@ -384,6 +421,81 @@ margin-right: 20px;
     margin-bottom: 20px;
     margin-right: 20px; 
     align-self: center;
+}
+.xeno{
+    position: relative;
+    top: 43px;
+    right: 20px;
+    width: 110%;
+    
+}
+.constellation{
+    background-repeat: repeat-x;
+    background-image: url(https://assets.nintendo.com/image/upload/q_60/f_auto/dpr_2.0/ncom/en_US/merchandising/center-stage-banner/xenoblade-chronicles-3/xbc3-constellation-tile);
+    width: 120%;
+    height: 150px;
+    position: relative;
+    top: 39px;
+    right: 20px;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    justify-content: center;
+}
+.tile{
+    position: relative;
+}
+.xenoButton{
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+    align-self: center;
+}
+
+.xenoText{
+position: relative;
+color: rgb(69, 69, 69);
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-size: 20px;
+text-align: center;
+width: 60%;
+top: 80px;
+left: 80px;
+}
+.reverseNav{
+    position: fixed;
+    top: 510px;
+    left: 10vw;
+    height: 70px;
+    width: 80%;
+    border-radius: 40px;
+    z-index: 200;
+    background-color: white;
+    border: solid white;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, .5);
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.scroller{
+    height: 50vh;
 }
 
 

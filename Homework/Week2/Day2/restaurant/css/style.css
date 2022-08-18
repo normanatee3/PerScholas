@@ -1,0 +1,71 @@
+body{
+    overflow-x: hidden;
+}
+.navBarBottom{
+    width: 95%;
+    border: solid red;
+    height: 50px;
+    position: fixed;
+    top: 4.2%;
+    left: 2.3%;
+    display: flex;
+    align-content: center;
+}
+.navBarTop{
+    width: 95%;
+    border: solid red;
+    height: 50px;
+    position: fixed;
+    top: 4.2%;
+    left: 2.3%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.navIconBox{
+    border: solid blue .1px;
+    width: 100%;
+    display: flex;
+}
+.navIcon{
+    width: 50px;
+}
+.storeTitleBox{
+    border: solid blue .1px;
+    width: 50%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+}
+.storeTitle{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.dinerImageBox{
+border: solid green;
+position: relative;
+width: 107.7%;
+left: 1.4%;
+top: 5%;
+}
+.dinerImage{
+width: 95.2%;
+height: 82.4%;
+position: fixed;
+top: 13%;
+left: 2.4%;
+z-index: -300;
+}
+.borderDiner{
+    z-index: 300;
+    position: fixed;
+    width: 102%;
+    left: -1%;
+    top: -2.5%;
+    height: 105%;
+    
+}
+.siteBox{
+    width: 90%;
+}

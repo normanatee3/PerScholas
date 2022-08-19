@@ -1,0 +1,47 @@
+body {}
+
+.screen {
+    border: solid blue 5px;
+    background-color: rgb(59, 59, 59);
+}
+
+.menuTitle {
+    margin: 15px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.mealTime {
+    text-align: center;
+    border-bottom: solid antiquewhite;
+    margin: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.time {
+    text-align: center;
+    color: antiquewhite;
+    background-color: black;
+    font-size: 35px;
+    width: 96%;
+    margin-left: 2%;
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+
+.item {
+    text-align: center;
+    color: black;
+    border: solid blue;
+    font-size: 20px;
+    width: 92%;
+    margin: 5px;
+    margin-left: 4%;
+    height: 25px;
+    background-color: gray;
+}
+
+#boozy {
+    color: red;
+}

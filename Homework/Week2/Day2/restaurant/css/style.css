@@ -2,40 +2,77 @@ body{
     overflow-x: hidden;
 }
 .navBarBottom{
-    width: 95%;
-    border: solid red;
+    width: 95.2%;
+    /* border: solid red; */
     height: 50px;
     position: fixed;
-    top: 4.2%;
+    top: 4.1%;
     left: 2.3%;
     display: flex;
     align-content: center;
+    border-bottom: solid black 2px;
+    background-color: red;
 }
 .navBarTop{
     width: 95%;
-    border: solid red;
     height: 50px;
     position: fixed;
-    top: 4.2%;
+    top: 4.1%;
     left: 2.3%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-content: center;
     text-align: center;
 }
+@keyframes scroll{
+    0%{top: 65;}
+    100%{top: 15px}
+}
+.linkbox{
+    animation: scroll 2s linear forwards ;
+    position: relative;
+    left: .9%;
+    top: 65px;
+    width: 108.5%;
+    border: solid blue;
+    background-color: antiquewhite;
+    text-align: center;
+    font-size: 20px;
+    /* z-index: 200; */
+    
+}
+.links{
+    text-decoration: none;
+    color: red;   
+    border-bottom: solid black .1px;
+}
+.links:hover{
+    background-color: red;
+    color: antiquewhite;   
+}
 .navIconBox{
-    border: solid blue .1px;
+    /* border: solid blue .1px; */
     width: 100%;
     display: flex;
+    background-color: red;
 }
 .navIcon{
-    width: 50px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 20%;
+    left: 5px;
+    border: solid black 1px;
 }
 .storeTitleBox{
-    border: solid blue .1px;
-    width: 50%;
+    /* border: solid blue .1px; */
+    width: 100%;
     display: flex; 
     flex-direction: column;
     justify-content: center;
+    height: 50px;
+    color: antiquewhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .storeTitle{
     text-align: center;
@@ -44,21 +81,22 @@ body{
 }
 .dinerImageBox{
 border: solid green;
-position: relative;
-width: 107.7%;
-left: 1.4%;
-top: 5%;
+position: fixed;
+width: 95%;
+height: 83%;
+left: 2%;
+top: 12%;
+display: flex;
+flex-direction: column;
 }
 .dinerImage{
-width: 95.2%;
-height: 82.4%;
-position: fixed;
-top: 13%;
-left: 2.4%;
-z-index: -300;
+width: 100%;
+height: 100%;
+background-color: aliceblue;
+/* z-index: -300; */
 }
 .borderDiner{
-    z-index: 300;
+    /* z-index: 300; */
     position: fixed;
     width: 102%;
     left: -1%;
@@ -66,6 +104,61 @@ z-index: -300;
     height: 105%;
     
 }
+.imgBox{
+    border: solid yellow;
+    height: 99%;
+    background-image: url(https://freepikpsd.com/file/2019/10/menu-border-png-1-Transparent-Images.png);
+    background-size: 100% 100%;
+    
+}
 .siteBox{
     width: 90%;
+}
+.foodBox{
+    border: solid green;
+    position: relative;
+    top: 50%;
+    height: 50%;
+    /* z-index: 1000; */
+}
+.innerMenu{
+    border: solid blue;
+    width: 89%;
+    left: 5%;
+    height: 93%;
+    top: 3%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.tabs{
+    border: solid yellow;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 7px;
+}
+.foodItem{
+    border: solid red;
+    width: 30%;
+    height: 200px;
+    
+    background-image: url(https://www.seekpng.com/png/full/218-2189614_image-transparent-library-png-plate-for-free-download.png);
+    background-size: 100% 100%;
+}
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+.button{
+    background-color: antiquewhite;
+    font-size: 10px;
+    border-radius: 50%;
+    font-weight: bolder;
+}
+.button:hover{
+    background-color: white;
 }

@@ -1,0 +1,206 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+body{
+    overflow-x: hidden;
+}
+.zoo {
+    text-align: center;
+    font-size: 80px;
+    background-color: green;
+    height: fit-content;
+    border: solid orange;
+    animation:linear scroll 5s infinite;
+    position: relative;
+}
+.title{
+    background-color: green;
+}
+@keyframes scroll{
+    0%{left: -75%;}
+    50%{border-radius: 50%; background-color: blue;}
+    100%{left: 75%;}
+}
+
+.lionBox {
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    background-color: green;
+    height: fit-content;
+
+}
+
+.lionTextBox {
+    background-color: beige;
+    border: solid brown 5px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.lionPicBox {
+    border: solid burlywood 3px;
+    margin: 5px;
+
+    padding: 5px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: flex-start;
+    height: fit-content;
+}
+
+.elephantBox {
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    background-color: green;
+    height: fit-content;
+
+}
+
+.elephantTextBox {
+    background-color: beige;
+    border: solid brown 5px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.elephantPicBox {
+    border: solid burlywood 3px;
+    margin: 5px;
+    padding: 5px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: flex-end;
+    height: fit-content;
+}
+
+.horseBox {
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    background-color: green;
+    height: fit-content;
+
+}
+
+.horseTextBox {
+    background-color: beige;
+    border: solid brown 5px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.horsePicBox {
+    border: solid burlywood 3px;
+    margin: 5px;
+    padding: 5px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: flex-start;
+    height: fit-content;
+}
+
+.gorillaBox {
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    background-color: green;
+    height: fit-content;
+
+}
+
+.gorillaTextBox {
+    background-color: beige;
+    border: solid brown 5px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.gorillaPicBox {
+    border: solid burlywood 3px;
+    margin: 5px;
+    padding: 5px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: flex-end;
+    height: fit-content;
+}
+
+.lionPic {
+    height: 50px;
+    border: solid black;
+    margin-left: 2%;
+}
+
+.elephantPic {
+    height: 50px;
+    border: solid black;
+    margin-right: 2%;
+}
+
+.horsePic {
+    height: 50px;
+    border: solid black;
+    margin-left: 2%;
+}
+
+.gorillaPic {
+    height: 50px;
+    border: solid black;
+    margin-right: 2%;
+}
+
+.lionPic:hover {
+    height: 60px;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+.elephantPic:hover {
+    height: 60px;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+.horsePic:hover {
+    height: 60px;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+.gorillaPic:hover {
+    height: 60px;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+.lionText {
+    border: solid orange;
+    justify-content: center;
+    margin-left: 2%;
+}
+
+.elephantText {
+    border: solid orange;
+    justify-content: center;
+    margin-right: 2%;
+}
+
+.horseText {
+    border: solid orange;
+    justify-content: center;
+    margin-left: 2%;
+}
+
+.gorillaText {
+    border: solid orange;
+    justify-content: center;
+    margin-right: 2%;
+}

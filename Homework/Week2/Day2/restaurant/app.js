@@ -15,7 +15,7 @@ let menu= {
         {
             name: "Waffles",
             smPrice: "$6",
-            txtMod: "Lg",
+            txtMod: "Extra Waffle",
             lgPrice: "$7"
         },
         {
@@ -45,224 +45,224 @@ let menu= {
             lgPrice: "$7"
         },
         {
-            name: "",
-            smPrice: "$6",
+            name: "Turkey Sandwich",
+            smPrice: "$7",
             txtMod: "w/ fries or salad",
-            lgPrice: "$7"
+            lgPrice: "$8"
         },
         {
-            name: "",
-            smPrice: "$6",
+            name: "Hamburger",
+            smPrice: "$8",
             txtMod: "w/ fries or salad",
-            lgPrice: "$7"
+            lgPrice: "$9"
         },
         {
-            name: "",
-            smPrice: "$6",
+            name: "Cheeseburger",
+            smPrice: "$8.50",
             txtMod: "w/ fries or salad",
-            lgPrice: "$7"
+            lgPrice: "$9.50"
         },
         {
-            name: "",
-            smPrice: "$6",
+            name: "Chicken Sandwich",
+            smPrice: "$7",
             txtMod: "w/ fries or salad",
-            lgPrice: "$7"
+            lgPrice: "$8"
         },
         {
-            name: "",
-            smPrice: "$6",
+            name: "Meatball Sandwich",
+            smPrice: "$7",
             txtMod: "w/ fries or salad",
-            lgPrice: "$7"
+            lgPrice: "$8"
         },
     ],
     dinner:[ 
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "w/ fries or salad",
-            lgPrice: "$7"
+            name: "Alfredo",
+            smPrice: "$9",
+            txtMod: "Large",
+            lgPrice: "$10"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "w/ fries or salad",
-            lgPrice: "$7"
+            name: "Pesto",
+            smPrice: "$9",
+            txtMod: "Large",
+            lgPrice: "$10"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Spaghetti",
+            smPrice: "$9",
+            txtMod: "Large",
+            lgPrice: "$10"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Garlic Shrimp",
+            smPrice: "$10",
+            txtMod: "Large",
+            lgPrice: "$12"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Lemon Chicken",
+            smPrice: "$10",
+            txtMod: "Large",
+            lgPrice: "$12"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Honey Salmon",
+            smPrice: "$11",
+            txtMod: "Large",
+            lgPrice: "$12"
         },
     ],
     dessert:[ 
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Lava Cake",
+            smPrice: "$3",
+            txtMod: "w/ Ice cream",
+            lgPrice: "$5"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Cheesecake",
+            smPrice: "$3",
+            txtMod: "w/ Caramel topping",
+            lgPrice: "$5"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Apple Pie",
+            smPrice: "$3",
+            txtMod: "w/ Ice cream",
+            lgPrice: "$5"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Fried Dough",
+            smPrice: "$4",
+            txtMod: "Large",
+            lgPrice: "$6"
         },
         {
-            name: "",
+            name: "Tiramisu",
             smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            txtMod: "w/ Ice cream",
+            lgPrice: "$8"
         },
         {
-            name: "",
+            name: "Cast Iron Cookie",
             smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            txtMod: "w/ Ice cream",
+            lgPrice: "$8"
         },
     ],
     beverages: [
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Seltzer",
+            smPrice: "$1",
+            txtMod: "Large",
+            lgPrice: "$2"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Lemonade",
+            smPrice: "$2",
+            txtMod: "Large",
+            lgPrice: "$3"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Soda",
+            smPrice: "$2",
+            txtMod: "Large",
+            lgPrice: "$3"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Coffee",
+            smPrice: "$2",
+            txtMod: "Large",
+            lgPrice: "$3"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Fresh OJ",
+            smPrice: "$3",
+            txtMod: "Large",
+            lgPrice: "$4"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Milk Shake",
+            smPrice: "$5",
+            txtMod: "Large",
+            lgPrice: "$6"
         },
     ],
     entrees: [
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Steak",
+            smPrice: "$12",
+            txtMod: "w/ fries or salad",
+            lgPrice: "$13"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Pork Chop",
+            smPrice: "$10",
+            txtMod: "w/ fries or salad",
+            lgPrice: "$11"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Fish & Chips",
+            smPrice: "$12",
+            txtMod: "w/ fries or salad",
+            lgPrice: "$13"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Fried Clams",
+            smPrice: "$15",
+            txtMod: "w/ fries or salad",
+            lgPrice: "$16"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Salmon Cakes",
+            smPrice: "$10",
+            txtMod: "w/ fries or salad",
+            lgPrice: "$11"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Roasted Chicken",
+            smPrice: "$9",
+            txtMod: "w/ fries or salad",
+            lgPrice: "$10"
         },
     ],
     appetizers: [
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Fried Wings",
+            smPrice: "$8",
+            txtMod: "Large",
+            lgPrice: "$10"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Buffalo Wings",
+            smPrice: "$9",
+            txtMod: "Large",
+            lgPrice: "$11"
         },
         {
-            name: "",
+            name: "Mozzarella Sticks",
             smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            txtMod: "Large",
+            lgPrice: "$8"
         },
         {
-            name: "",
+            name: "Jalapeno Poppers",
             smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            txtMod: "Large",
+            lgPrice: "$8"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Calamari",
+            smPrice: "$9",
+            txtMod: "Large",
+            lgPrice: "$11"
         },
         {
-            name: "",
-            smPrice: "$6",
-            txtMod: "Lg",
-            lgPrice: "$7"
+            name: "Nachos",
+            smPrice: "$8",
+            txtMod: "w/ meat",
+            lgPrice: "$11"
         }
     ]
 
@@ -274,7 +274,7 @@ let menu= {
 let changeItems = (evt) => {
     let foodItems = document.querySelectorAll(".foodItem")
     for(let i = 0; i <foodItems.length; i++ ){
-        foodItems[i].innerHTML = `<h1 class="item${i+1}">${menu[evt][i].name}</h1>
+        foodItems[i].innerHTML = `<h3 class="item${i+1}">${menu[evt][i].name}</h3>
         <h4 class="item${i+1}">${menu[evt][i].smPrice}</h4>
         <h6 class="item${i+1}">${menu[evt][i].txtMod}</h6>
         <h5 class="item${i+1}">${menu[evt][i].lgPrice}</h5>`

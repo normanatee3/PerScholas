@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" slideText="IE=edge">
+    <title></title>
+    <meta name="description" slideText="">
+    <meta name="viewport" slideText="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="screen2">
+
+        <div class="screen">
+
+        </div>
+    </div>
+
+    <div class="navContainer">
+        <div class="nav">
+            <div onclick="closeCard(), showAbout()" class="slide">
+                <div class="slideText">
+                    <h3>About Me</h3>
+                    <img class="icon" src="/images/color-icons/id-card.png" alt="">
+
+                </div>
+            </div>
+            <div onclick="closeCard(), showProject()" class="slide">
+                <div class="slideText">
+                    <h3>Projects</h3>
+                    <img src="/images/color-icons/idea.png" alt="" class="icon">
+
+                </div>
+            </div>
+            <div onclick="closeCard(), showResume()" class="slide">
+                <div class="slideText">
+                    <h3>Resume</h3>
+                    <img src="/images/color-icons/cv.png" alt="" class="icon">
+
+                </div>
+            </div>
+            <div onclick="closeCard(), showContact()" class="slide">
+                <div class="slideText">
+                    <h3>Contact</h3>
+                    <img src="/images/color-icons/contact.png" alt="" class="icon">
+
+                </div>
+            </div>
+            <div onclick="closeCard(), showSocial()" class="slide">
+                <div class="slideText">
+                    <h3>Socials</h3>
+                    <img src="/images/color-icons/social-media.png" alt="" class="icon">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popContainer about">
+        <div class="popCard">
+            <div class="popSlide leftSlide aboutSlide">
+                <img onclick="hideCard()" src="/images/color-icons/close.png" alt="" class="popClose">
+                <img src="/images/self.jpg" alt="" class="selfImg">
+                <p class="info">28 Year old aspiring game developer out of Cambridge, Massachusetts. <br>Welcome. </p>
+                <iframe class="video" src="https://player.vimeo.com/video/25427877?h=710845fcdb&autoplay=1&title=0&byline=0&portrait=0" width="800" height="600" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popContainer project">
+        <div class="popCard">
+            <div class="popSlide projectSlide leftSlide">
+                <img onclick="hideCard()" src="/images/color-icons/close.png" alt="" class="popClose">
+                
+                <a class="sq" href="/projects/restaurant/pages/menu.html">
+                <img src="/projects/menu.png" alt="" class="sq2 menu">
+                </a>
+                <a class="sq" href="/projects/nintendoMockup/Product.html">
+                <img src="/projects/Nintendo.png" alt="" class="sq2 nintendo">
+                </a>
+                <a class="sq" href="/projects/NikeMockup/index.html">
+                <img src="/projects/NikeMockup.png" alt="" class="sq2 nike">
+                </a>
+                <a class="sq" href="/projects/tokyo_bikes/index.html">
+                <img src="/projects/tokyo.png" alt="" class="sq2 tokyo">
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="popContainer resume">
+        <div class="popCard">
+            <div class="popSlide downSlide">
+                <img onclick="hideCard()" src="/images/color-icons/close.png" alt="" class="popClose">
+                <img src="/images/resume1.png" alt="" class="resumeCardL">
+                <img src="/images/resume2.png" alt="" class="resumeCardR">
+            </div>
+        </div>
+    </div>
+    <div class="popContainer contact">
+        <div class="popCard">
+            <div class="popSlide contactSlide rightSlide">
+                <img onclick="hideCard()" src="/images/color-icons/close.png" alt="" class="popClose">
+                <p class="info in2"><span>EMAIL: </span> normankennedytaylor@gmail.com </p>
+                <p class="info in2"><span>PHONE: </span>***-***-**** </p>
+                <p class="info in2"><span>GITHUB: </span>https://github.com/normanatee3/</p>
+            </div>
+        </div>
+    </div>
+    <div class="popContainer social">
+        <div class="popCard">
+            <div class="popSlide rightSlide">
+                <img onclick="hideCard()" src="/images/color-icons/close.png" alt="" class="popClose">
+                90shggh
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="app.js" async defer></script>
+</body>
+
+</html>

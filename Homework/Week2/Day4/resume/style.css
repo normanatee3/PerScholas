@@ -167,12 +167,26 @@ body{
     0%{left: -150%;}
     100%{left: 7.5%;}
 }
+@keyframes ldslide {
+    0%{top: 150%; left: -150%;}
+    100%{top: 12.5%; left: 7.5%;}
+}
 @keyframes dslide {
     0%{top: 150%;}
     100%{top: 12.5%;}
 }
+@keyframes rdslide {
+    0%{top: 150%; left: 150%;}
+    100%{top: 12.5%; left: 7.5%;}
+}
 .rightSlide{
     animation: rslide .7s linear forwards;
+}
+.rightDownSlide{
+    animation: rdslide .7s linear forwards;
+}
+.leftDownSlide{
+    animation: ldslide .7s linear forwards;
 }
 .downSlide{
     animation: dslide .7s linear forwards;
@@ -299,4 +313,7 @@ body{
 }
 span{
     font-weight: bolder;
+}
+.icons{
+    width: 100%;
 }

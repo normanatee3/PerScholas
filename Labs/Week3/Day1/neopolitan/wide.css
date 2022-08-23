@@ -1,0 +1,78 @@
+body{
+    background-color: rgb(254, 249, 192);
+    color: rgb(217, 70, 222);
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    
+
+}
+.topText{
+    width: 100%;
+}
+.parentContainer{
+    margin-right: 5%;
+    margin-top: 5vh;
+    border: solid rgb(217, 70, 222);
+    height: 70vh;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRok4U3PkwYODXBDuyCo8G7SQX_x-69s1zW4w&usqp=CAU);
+    background-size: cover;
+    
+}
+.secondContainer{
+    margin-left: 4%;
+    margin-top: 5vh;
+    border: solid rgb(217, 70, 222);
+    height: 70vh;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+}
+.nightIMG{
+    width: 100%;
+}
+.nightHeader{
+    font-size: 20px;
+    
+}
+.mornIMG{
+    width: 100%;
+}
+.mornHeader{
+    position: absolute;
+    font-size: 80px;
+    background-color:rgba(217, 70, 222, .2);
+    padding: 10px;
+    border-radius: 10px;
+}
+.warioHeader{
+    background-color:rgba(144, 44, 148, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+}
+.warioIMG{
+    background-color:rgba(144, 44, 148, .8);
+    padding: 10px;
+    border-radius: 10px;
+    width: 25%;
+    margin: 30px;
+}
+.night{
+    display: none;
+}
+.noon{
+    display: none;
+}
+.morn{
+    display: flex;
+}

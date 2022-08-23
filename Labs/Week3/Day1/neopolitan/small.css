@@ -1,0 +1,61 @@
+body{
+    background-color: black;
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.parentContainer{
+    margin-right: 0%;
+
+    border: solid red;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 50%;
+    background-image: url(https://i.ytimg.com/vi/L7aJxY65QDc/mqdefault.jpg);
+    background-size: cover;
+}
+.secondContainer{
+    margin-left: 0%;
+
+    margin-top: 5vh;
+    border: solid red;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+
+}
+.nightIMG{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+.nightHeader{
+    font-size: 20px;
+    
+}
+.marioIMG{
+    width: 30%;
+    margin: 20px;
+}
+.marioHeader{
+    background-color:rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    border-radius: 30px;
+}
+.night{
+    display: flex;
+}
+.noon{
+    display: none;
+}
+.morn{
+    display: none;
+}

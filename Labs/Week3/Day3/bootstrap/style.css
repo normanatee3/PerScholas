@@ -1,6 +1,6 @@
 
 *{
-    background-color: #32373b;
+    background-color: #212529;
 }
 body{
     padding-top: 86px;
@@ -26,4 +26,10 @@ body{
 .card{
     margin: 1.5%;
 }
-
+.tp{
+    position: fixed;
+    bottom: 0%;
+    left: -5%;
+    height: 40%;
+    
+}

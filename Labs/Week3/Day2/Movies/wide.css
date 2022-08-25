@@ -1,0 +1,130 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    /* border: solid 5px black; */
+    background-image: url(https://media1.giphy.com/media/h7jjtmZstLBTCkWSKQ/giphy.gif?cid=6c09b95254c31c7acaa05a22bc2b9a23a82ffbd8b1e314b8&rid=giphy.gif&ct=g);
+    background-size: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.spirit{
+    display: none;
+}
+.gse{
+    display: none;
+}
+.dead{
+    display: flex;
+}
+.titleText{
+    color: rgba(255, 255, 255, 0.719);
+    background-color: rgba(60, 0, 0, 0.7);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    margin: 0px;
+    margin-top: 20px;
+    padding: 0px;
+    border: solid rgba(255, 255, 255, 0.575);
+    border-width: 10px 0 10px 0;
+    text-shadow: 0px 0px 10px #fff,
+    0px 0px 20px #f0f,
+    0px 0px 30px #0ff; 
+    box-shadow: 0 0 20px 10px #fff,  
+    0 0 35px 25px #f0f, 
+    0 0 50px 40px #0ff,
+    0 0 20px 1px #fff inset,  
+                0 0 25px 5px #f0f inset, 
+                0 0 50px 5px #0ff inset;
+
+}
+.titlePhotoBox{
+    width: 100%;
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    box-shadow: 0 0 20px 1px #fff inset,  
+                0 0 25px 5px #f0f inset, 
+                0 0 50px 5px #0ff inset;
+}
+.titlePhoto{
+    width: 100%;
+
+    box-shadow: 0 0 20px 10px #fff,  
+                0 0 35px 25px #f0f, 
+                0 0 50px 40px #0ff;
+    z-index: -1;
+
+}
+.synopsisBox{
+    margin-top: 150px;
+    width: 100%;
+    border: solid rgba(255, 255, 255, 0.575);
+    border-width: 10px 0 10px 0;
+    background-color: rgba(60, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 20px 10px #fff,  
+    0 0 35px 25px #f0f, 
+    0 0 50px 40px #0ff,
+    0 0 20px 1px #fff inset,  
+                0 0 25px 5px #f0f inset, 
+                0 0 50px 5px #0ff inset;
+}
+.trailerBox{
+    width: 100%;
+    box-shadow: 0 0 20px 10px #fff,  
+    0 0 35px 25px #f0f, 
+    0 0 50px 40px #0ff,
+    0 0 20px 1px #fff inset,  
+                0 0 25px 5px #f0f inset, 
+                0 0 50px 5px #0ff inset;
+    margin-top: 150px;
+    height: fit-content;
+    margin-bottom: 50px;
+
+}
+.trailer{
+    width: 100%;
+
+
+}
+.btns{
+    position: absolute;
+    top: 18%;
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 0%;
+
+}
+.button{
+    width: 14vh;
+    transition: .5s;
+}
+.bg{
+    border: none;
+    background-color: none;
+    border-radius: 5px;
+    margin: 30px;
+    padding: 10px;
+
+}
+.button:hover{
+    transform: translateY(30px);
+}
+.hide{
+    display: none;
+}

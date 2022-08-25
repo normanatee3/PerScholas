@@ -1,0 +1,110 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    /* border: solid 5px black; */
+    background-image: url(https://media3.giphy.com/media/ayMW3eqvuP00o/giphy.gif?cid=6c09b952c010b2483848f2db6cd533f25ca229ad13e196c6&rid=giphy.gif&ct=g);
+    background-size: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.spirit{
+    display: flex;
+}
+.gse{
+    display: none;
+}
+.dead{
+    display: none;
+}
+.titleText{
+    color: rgb(140, 52, 71);
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
+    margin: 5px;
+    margin-top: 20px;
+    padding: 0px;
+    border-radius: 60px;
+    border: solid rgba(255, 255, 255, 0.3) 5px;
+}
+.titlePhotoBox{
+    width: 80%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titlePhoto{
+    width: 80%;
+    border-radius: 20px;
+    border: solid 10px rgba(255, 255, 255, 0.575);
+
+
+}
+.synopsisBox{
+    margin-top: 140px;
+    width: 80%;
+    border-radius: 20px;
+    border: solid 10px rgba(255, 255, 255, 0.575);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+}
+.synbg{
+    position: absolute;
+    width: 20%;
+    bottom: -45%;
+    opacity: .6;
+}
+.trailerBox{
+    width: 80%;
+    border: solid 10px rgba(255, 255, 255, 0.575);
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+
+}
+.trailer{
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+.btns{
+    position: absolute;
+    top: 65%;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 15%;
+
+}
+.button{
+    width: 100%;
+    transition: .5s;
+}
+.bg{
+    border: solid 10px rgba(255, 255, 255, 0.575);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 5px;
+
+}
+.button:hover{
+    transform: translateY(-20px);
+}
+.hide{
+    display: none;
+}

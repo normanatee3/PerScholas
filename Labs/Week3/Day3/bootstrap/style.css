@@ -1,0 +1,29 @@
+
+*{
+    background-color: #32373b;
+}
+body{
+    padding-top: 86px;
+}
+.scrubIcon{
+    height: 60px
+}
+.scrubIcon2{
+    height: 50px
+}
+.carousel{
+    position: relative;
+    top: 85px;
+    
+}
+.trailer{
+    position: relative;
+    margin-top: 185px;
+    margin-bottom: 85px;
+    width: 100%;
+    align-self: center;
+}
+.card{
+    margin: 1.5%;
+}
+

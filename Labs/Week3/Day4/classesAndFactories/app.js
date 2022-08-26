@@ -85,3 +85,28 @@ for(let i = 0; i < 2; i++){
 for(let i = 0; i < 2; i++){
     timmy.exercise()
 }
+
+class Dinner {
+    constructor(appetizer, entree, dessert){
+        this.appetizer = appetizer
+        this.entree = entree
+        this.dessert = dessert
+    }
+}
+
+class Chef {
+    constructor(){
+        this.dinnerSet = [];
+    }
+    
+    createDinner(app, ent, des) {
+        let newDinner = new Dinner(app, ent, des);
+        dinnerSet.push(newDinner);
+    }
+}
+
+let gordonRamsey = new Chef();
+gordonRamsey.createDinner('fries', 'chicken', 'cake');
+gordonRamsey.createDinner('mozzy sticks', 'steak', 'pie');
+gordonRamsey.createDinner('nachos', 'burrito', 'churro');
+console.log(gordonRamsey.dinnerSet);

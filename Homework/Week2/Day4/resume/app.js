@@ -10,22 +10,28 @@ const closeCard = () => {
     }
 }
 const showAbout = () => {
+    closeCard()
     let target = document.querySelector('.about')
     target.classList.toggle('unhide')
 }
 const showProject = () => {
+    closeCard()
+
     let target = document.querySelector('.project')
     target.classList.toggle('unhide')
 }
 const showResume = () => {
+        closeCard()
     let target = document.querySelector('.resume')
     target.classList.toggle('unhide')
 }
 const showContact = () => {
+        closeCard()
     let target = document.querySelector('.contact')
     target.classList.toggle('unhide')
 }
 const showSocial = () => {
+        closeCard()
     let target = document.querySelector('.social')
     target.classList.toggle('unhide')
 }

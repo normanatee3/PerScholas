@@ -6,23 +6,39 @@ const player = {
 
 const alienTeam = []
 
-const alienShip = {
-    hull: 0,
-    firepower: 0,
-    accuracy: 0
-}
-
 const newShip = () =>{
-    const newShip ={
+    const alienShip ={
     }
-    newShip.hull = (Math.floor((Math.random()*30)+30))/10
-    newShip.firepower = (Math.floor((Math.random()*20)+20))/10
-    newShip.accuracy = (Math.floor((Math.random()*2)+6))/10
-    alienTeam.push(newShip)
-    return newShip
+    alienShip.hull = Math.floor((Math.random()*3.9)+3)
+    alienShip.firepower = Math.floor((Math.random()*2.9)+2)
+    alienShip.accuracy = (Math.floor((Math.random()*2.9)+6))/10
+    alienTeam.push(alienShip)
+    return alienShip
     
 }
+// spawns 6 ships
 for(i = 0; i<6; i++){
     newShip()
 }
-console.log(alienTeam);
+
+console.log(alienTeam[0]);
+console.log(player);
+
+// attack function
+const attack = (attacker, target) =>{
+    if(Math.random() < attacker.accuracy){
+        target.hull -= attacker.firepower
+        console.log(`hit`);
+    }else{
+        console.log(`miss`);
+    }
+}
+
+attack(alienTeam[0], player)
+console.log(player);
+attack(alienTeam[0], player)
+console.log(player);
+attack(alienTeam[0], player)
+console.log(player);
+attack(alienTeam[0], player)
+console.log(player);

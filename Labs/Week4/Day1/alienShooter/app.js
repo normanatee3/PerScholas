@@ -19,7 +19,7 @@ const newShip = () =>{
     
 }
 // spawns 6 ships
-for(i = 0; i<6; i++){
+for(let i = 0; i<6; i++){
     newShip()
 }
 
@@ -68,10 +68,10 @@ const battle = (fighter1, fighter2) => {
 // console.log(winner);
 
 
-const nextBattle = () =>{
-    if(winner == 'enemy'){
-        console.log(`You have lost, game over.`);
-    } else if(winner == 'player')[
-        
-    ]
-}
+// const nextBattle = () =>{
+//     if(winner == 'enemy'){
+//         console.log(`You have lost, game over.`);
+//     } else if(winner == 'player')[
+
+//     ]
+// }

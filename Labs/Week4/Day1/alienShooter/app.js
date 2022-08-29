@@ -39,14 +39,17 @@ const attack = (attacker, target) =>{
 // attack(alienTeam[0], player)
 // console.log(player);
 
+// reference winner of battle
+let winner = ''
+
 // determine winner of battle
 const battle = (fighter1, fighter2) => {
+    
     while(fighter1.hull>0 && fighter2.hull>0){
         if(turn == '1'){
             console.log(`turn 1`);
             attack(fighter1, fighter2)
             turn = '2'
-            // console.log(turn);
         }else if(turn == '2'){
             console.log(`turn 2`);
             attack(fighter2, fighter1)
@@ -54,9 +57,21 @@ const battle = (fighter1, fighter2) => {
         }
     }
     if(fighter1.hull <= 0){
-        console.log(`winner is ${fighter2.name}`);
+        winner = 'enemy'
     }else if(fighter2.hull <= 0){
-        console.log(`winner is ${fighter1.name}`);
+        winner = 'player'
     }
+
 }
-battle(player, alienTeam[0])
+
+// battle(player, alienTeam[0])
+// console.log(winner);
+
+
+const nextBattle = () =>{
+    if(winner == 'enemy'){
+        console.log(`You have lost, game over.`);
+    } else if(winner == 'player')[
+        
+    ]
+}

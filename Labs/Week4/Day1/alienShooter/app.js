@@ -1,3 +1,20 @@
+const onScreen = document.querySelector('.screen')
+const buttons = document.querySelector('.buttonArea')
+let playerSide ;
+let enemySide; 
+let enemyCount = 6
+
+
+
+
+
+
+
+
+
+
+
+
 const player = {
     name: 'Player',
     hull: 20,
@@ -19,7 +36,7 @@ const newShip = () =>{
     
 }
 // spawns 6 ships
-for(let i = 0; i<6; i++){
+for(let i = 0; i<enemyCount; i++){
     newShip()
 }
 
@@ -47,11 +64,11 @@ const battle = (fighter1, fighter2) => {
     
     while(fighter1.hull>0 && fighter2.hull>0){
         if(turn == '1'){
-            console.log(`turn 1`);
+            // console.log(`turn 1`);
             attack(fighter1, fighter2)
             turn = '2'
         }else if(turn == '2'){
-            console.log(`turn 2`);
+            // console.log(`turn 2`);
             attack(fighter2, fighter1)
             turn = '1'
         }
@@ -75,3 +92,46 @@ const battle = (fighter1, fighter2) => {
 
 //     ]
 // }
+
+const startButton = () =>{
+
+    createStart()
+    createButton('Fire')
+    createButton('Flee')
+    createButton('Woops')
+    createPlayer()
+    for(let i = 0; i<enemyCount; i++){
+        createEnemy()
+    }
+
+    
+}
+const createStart = () =>{
+    onScreen.innerHTML = ''
+    let ps = document.createElement("div")
+    ps.classList.add('playerSide')
+    let ce = document.createElement("div")
+    ce.classList.add('center')
+    let es = document.createElement("div")
+    es.classList.add('enemySide')
+    onScreen.append(ps, ce, es)
+
+}
+const createButton = (btnName) =>{
+    let button1 = document.createElement("button")
+    button1.classList.add('btn')
+    button1.innerHTML = btnName
+    buttons.append(button1)
+}
+const createPlayer = () =>{
+    playerSide = document.querySelector('.playerSide')
+    let player = document.createElement("div")
+    player.classList.add('player')
+    playerSide.append(player)
+}
+const createEnemy = () =>{
+    enemySide = document.querySelector('.enemySide')
+    let enemy = document.createElement("div")
+    enemy.classList.add('enemy')
+    enemySide.append(enemy)
+}

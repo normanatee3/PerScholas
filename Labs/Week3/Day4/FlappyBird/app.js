@@ -71,6 +71,8 @@ setInterval(function(){
         let total = score.innerHTML
         alert(`Game Over. Your Total Score was ${total}. Press F5 to Restart`)
         bird.style.top = 200 +"px"
+
+        score.innerHTML = '0'
     }
 
     

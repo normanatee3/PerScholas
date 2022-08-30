@@ -7,12 +7,10 @@ let shields;
 // reference winner of battle
 let winner = ''
 let missileCount = 3
-
-
-
-
-
-
+const alienTeam = []
+let turn = '1'
+let credits = 0
+let level = 1
 
 const player = {
     name: 'Player',
@@ -21,8 +19,6 @@ const player = {
     accuracy: .7
 }
 
-const alienTeam = []
-let turn = '1'
 const newShip = () =>{
     const alienShip ={
     }
@@ -35,11 +31,6 @@ const newShip = () =>{
     
 }
 
-
-
-// console.log(alienTeam[0]);
-// console.log(player);
-
 // attack function
 const attack = (attacker, target) =>{
     center = document.querySelector('.center')
@@ -50,11 +41,6 @@ const attack = (attacker, target) =>{
         center.innerHTML+=(`${attacker.name} missed<br>`);
     }
 }
-
-// attack(alienTeam[0], player)
-// console.log(player);
-
-
 
 // determine winner of battle
 const battle = (fighter1, fighter2) => {
@@ -78,17 +64,6 @@ const battle = (fighter1, fighter2) => {
 
 }
 
-// battle(player, alienTeam[0])
-// console.log(winner);
-
-
-// const nextBattle = () =>{
-//     if(winner == 'enemy'){
-//         console.log(`You have lost, game over.`);
-//     } else if(winner == 'player')[
-
-//     ]
-// }
 
 const startButton = () =>{
     let enemyCount = Math.floor(Math.random()*5)+3
@@ -125,24 +100,19 @@ const createFireButton = (btnName) =>{
     button1.classList.add('btn')
     button1.classList.add(btnName)
     button1.addEventListener('click', () =>{
-        center = document.querySelector('.center')
-        center.innerHTML=(`You Started with ${player.hull} health.<br>`);
         if(alienTeam.length == 0){
-            buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
-            onScreen.innerHTML = 'You Won the game. Click Start to Try again'
-            player.hull = 20
-            alienTeam.length = 0
-            missileCount = 3
+            winState()
+            levelUp()
+            
         }else{
+            center = document.querySelector('.center')
+            center.innerHTML=(`You Started with ${player.hull} health.<br>`);
             player.firepower = 5
             turn = '1'
             battle(player, alienTeam[0])
             if(winner == 'player'){
-                center.innerHTML+=(`You Won.<br>`);
-            alienTeam.shift()
-            let enemy = document.querySelector('.enemy')
-            enemy.remove()
-            center.innerHTML+=(`You have ${player.hull} health remaining.<br>`);
+                destroyEnemy()
+                gainCredits()
         }else if(winner == 'enemy'){
             center.innerHTML+=(`You Lost.<br>`);
             buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
@@ -150,6 +120,8 @@ const createFireButton = (btnName) =>{
             player.hull = 20
             alienTeam.length = 0
             missileCount = 3
+            resetCredits()
+            levelReset
         }
     }
     })
@@ -163,34 +135,25 @@ const createMissileButton = (btnName) =>{
     button1.innerHTML = `${btnName}s - ${missileCount}`
     button1.addEventListener('click', () =>{
         center = document.querySelector('.center')
-        
         if(alienTeam.length == 0){
-            buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
-            onScreen.innerHTML = 'You Won the game. Click Start to Try again'
-            player.hull = 20
-            alienTeam.length = 0
-            missileCount = 3
+            winState()
+            levelUp()
+            
         }else{
             player.firepower = 8
             if(missileCount>0){
-                
                 center.innerHTML=(`You Started with ${player.hull} health.<br>`);
                 center.innerHTML+=(`You fired a missile.<br>`);
                 attack(player, alienTeam[0])
                 if(alienTeam[0].hull<=0){
-                    center.innerHTML+=(`You Won.<br>`);
-                    alienTeam.shift()
-                    let enemy = document.querySelector('.enemy')
-                    enemy.remove()
-                    center.innerHTML+=(`You have ${player.hull} health remaining.<br>`);
+                    destroyEnemy()
+                    gainCredits()
                     missileCount--
-                    button1.innerHTML = `${btnName}s - ${missileCount}`
                 }else if(alienTeam[0].hull>0){
                     center.innerHTML+=(`Enemy is still alive with ${alienTeam[0].hull} health.<br>`);
-                    
                     missileCount--
-                    button1.innerHTML = `${btnName}s - ${missileCount}`
                 }
+                button1.innerHTML = `${btnName}s - ${missileCount}`
             }else{
                 center.innerHTML=(`You are out of Missiles.<br>`);
             }
@@ -205,10 +168,12 @@ const createFleeButton = (btnName) =>{
     button1.classList.add(btnName)
     button1.addEventListener('click', () =>{
         buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
-        onScreen.innerHTML = 'You Ran Away'
+        onScreen.innerHTML = 'You Ran Away and lost half your Credits'
         player.hull = 20
         alienTeam.length = 0
         missileCount = 3
+        fleeCredits()
+        levelReset()
     })
     button1.innerHTML = btnName
     buttons.append(button1)
@@ -240,3 +205,44 @@ const createEnemy = () =>{
     enemySide.append(enemy)
 }
 
+const winState = () =>{
+    buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
+    onScreen.innerHTML = 'You Beat The Level. Click Start To Move On'
+    player.hull = 20
+    alienTeam.length = 0
+    missileCount = 3
+}
+const destroyEnemy = () =>{
+    center.innerHTML+=(`You Won.<br>`);
+    alienTeam.shift()
+    let enemy = document.querySelector('.enemy')
+    enemy.remove()
+    center.innerHTML+=(`You have ${player.hull} health remaining.<br>`);
+}
+
+const gainCredits = () =>{
+    credits += Math.floor(Math.random()*10)+1
+    let creditTotal = document.querySelector('.credits')
+    creditTotal.innerHTML = `Credits: ${credits}`
+}
+const resetCredits = () =>{
+    credits = 0
+    let creditTotal = document.querySelector('.credits')
+    creditTotal.innerHTML = `Credits: 0`
+}
+const fleeCredits = () =>{
+    credits = Math.floor(credits/2)
+    let creditTotal = document.querySelector('.credits')
+    creditTotal.innerHTML = `Credits: ${credits}`
+}
+
+const levelUp = () =>{
+    level = 1
+    let levelCount = document.querySelector('.level')
+    levelCount.innerHTML = `Level: 1`
+}
+const levelReset = () =>{
+    level++
+    let levelCount = document.querySelector('.level')
+    levelCount.innerHTML = `Level: ${level}`
+}

@@ -3,10 +3,15 @@ const buttons = document.querySelector('.buttonArea')
 let playerSide ;
 let enemySide; 
 let enemyCount = 6
+let fb;
+// reference winner of battle
+let winner = ''
 
-
-
-
+const Fire = {
+    Press(){
+        alert(`works`)
+    }
+}
 
 
 
@@ -28,9 +33,9 @@ const newShip = () =>{
     const alienShip ={
     }
     alienShip.name = 'alien'
-    alienShip.hull = Math.floor((Math.random()*3.9)+3)
-    alienShip.firepower = Math.floor((Math.random()*2.9)+2)
-    alienShip.accuracy = (Math.floor((Math.random()*2.9)+6))/10
+    alienShip.hull = Math.floor((Math.random()*4)+3)
+    alienShip.firepower = Math.floor((Math.random()*3)+2)
+    alienShip.accuracy = (Math.floor((Math.random()*3)+6))/10
     alienTeam.push(alienShip)
     return alienShip
     
@@ -56,8 +61,7 @@ const attack = (attacker, target) =>{
 // attack(alienTeam[0], player)
 // console.log(player);
 
-// reference winner of battle
-let winner = ''
+
 
 // determine winner of battle
 const battle = (fighter1, fighter2) => {
@@ -96,9 +100,9 @@ const battle = (fighter1, fighter2) => {
 const startButton = () =>{
 
     createStart()
-    createButton('Fire')
-    createButton('Flee')
-    createButton('Woops')
+    createFireButton('Fire')
+    createFleeButton('Flee')
+    createWoopsButton('Woops')
     createPlayer()
     for(let i = 0; i<enemyCount; i++){
         createEnemy()
@@ -117,9 +121,34 @@ const createStart = () =>{
     onScreen.append(ps, ce, es)
 
 }
-const createButton = (btnName) =>{
+const createFireButton = (btnName) =>{
     let button1 = document.createElement("button")
     button1.classList.add('btn')
+    button1.classList.add(btnName)
+    button1.addEventListener('click', () =>{
+        alert(`123`)
+    })
+    button1.innerHTML = btnName
+    buttons.append(button1)
+}
+const createFleeButton = (btnName) =>{
+    let button1 = document.createElement("button")
+    button1.classList.add('btn')
+    button1.classList.add(btnName)
+    button1.addEventListener('click', () =>{
+        alert(`456`)
+        
+    })
+    button1.innerHTML = btnName
+    buttons.append(button1)
+}
+const createWoopsButton = (btnName) =>{
+    let button1 = document.createElement("button")
+    button1.classList.add('btn')
+    button1.classList.add(btnName)
+    button1.addEventListener('click', () =>{
+        
+    })
     button1.innerHTML = btnName
     buttons.append(button1)
 }
@@ -135,3 +164,4 @@ const createEnemy = () =>{
     enemy.classList.add('enemy')
     enemySide.append(enemy)
 }
+

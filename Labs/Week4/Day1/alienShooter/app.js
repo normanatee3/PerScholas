@@ -2,8 +2,8 @@ const onScreen = document.querySelector('.screen')
 const buttons = document.querySelector('.buttonArea')
 let playerSide ;
 let enemySide; 
-let enemyCount = 8
-let fb;
+let center;
+let enemyCount = 3
 // reference winner of battle
 let winner = ''
 
@@ -26,7 +26,7 @@ let turn = '1'
 const newShip = () =>{
     const alienShip ={
     }
-    alienShip.name = 'alien' + alienTeam.length
+    alienShip.name = 'alien' + (alienTeam.length+1)
     alienShip.hull = Math.floor((Math.random()*4)+3)
     alienShip.firepower = Math.floor((Math.random()*3)+2)
     alienShip.accuracy = (Math.floor((Math.random()*3)+6))/10
@@ -35,20 +35,19 @@ const newShip = () =>{
     
 }
 // spawns 6 ships
-for(let i = 0; i<enemyCount; i++){
-    newShip()
-}
+
 
 // console.log(alienTeam[0]);
 // console.log(player);
 
 // attack function
 const attack = (attacker, target) =>{
+    center = document.querySelector('.center')
     if(Math.random() < attacker.accuracy){
         target.hull -= attacker.firepower
-        console.log(`${attacker.name} hit for ${attacker.firepower}`);
+        center.innerHTML+=(`${attacker.name} hit for ${attacker.firepower}<br>`);
     }else{
-        console.log(`${attacker.name} missed`);
+        center.innerHTML+=(`${attacker.name} missed<br>`);
     }
 }
 
@@ -92,13 +91,14 @@ const battle = (fighter1, fighter2) => {
 // }
 
 const startButton = () =>{
-
+    
     createStart()
     createFireButton('Fire')
     createFleeButton('Flee')
     createWoopsButton('Woops')
     createPlayer()
     for(let i = 0; i<enemyCount; i++){
+        newShip()
         createEnemy()
     }
 
@@ -121,22 +121,28 @@ const createFireButton = (btnName) =>{
     button1.classList.add('btn')
     button1.classList.add(btnName)
     button1.addEventListener('click', () =>{
-        console.log(`You Started with ${player.hull} health.`);
+        center = document.querySelector('.center')
+        
+        center.innerHTML=(`You Started with ${player.hull} health.<br>`);
         if(alienTeam.length == 0){
-            alert(`you won the game`)
+            buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
+            onScreen.innerHTML = 'You Won the game. Click Start to Try again'
+            player.hull = 20
+            alienTeam.length = 0
         }else{
             battle(player, alienTeam[0])
             if(winner == 'player'){
-                alert(`you won`)
+                center.innerHTML+=(`You Won.<br>`);
             alienTeam.shift()
             let enemy = document.querySelector('.enemy')
             enemy.remove()
-            console.log(`You have ${player.hull} health remaining.`);
+            center.innerHTML+=(`You have ${player.hull} health remaining.<br>`);
         }else if(winner == 'enemy'){
-            alert(`you lost`)
+            center.innerHTML+=(`You Lost.<br>`);
             buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
             onScreen.innerHTML = 'You Lost. Click Start to Try again'
             player.hull = 20
+            alienTeam.length = 0
         }
     }
     })
@@ -151,6 +157,7 @@ const createFleeButton = (btnName) =>{
         buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
         onScreen.innerHTML = 'You Ran Away'
         player.hull = 20
+        alienTeam.length = 0
     })
     button1.innerHTML = btnName
     buttons.append(button1)
@@ -160,7 +167,11 @@ const createWoopsButton = (btnName) =>{
     button1.classList.add('btn')
     button1.classList.add(btnName)
     button1.addEventListener('click', () =>{
-        
+        let x = (Math.floor(Math.random()*256))
+        let y = (Math.floor(Math.random()*256))
+        let z = (Math.floor(Math.random()*256))
+        let randomColor = "rgb(" + x + "," + y + "," + z + ")"
+        document.body.style.backgroundColor = randomColor
     })
     button1.innerHTML = btnName
     buttons.append(button1)

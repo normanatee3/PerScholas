@@ -3,10 +3,10 @@ const buttons = document.querySelector('.buttonArea')
 let playerSide ;
 let enemySide; 
 let center;
-let enemyCount = 3
+let shields;
 // reference winner of battle
 let winner = ''
-
+let missileCount = 3
 
 
 
@@ -91,9 +91,12 @@ const battle = (fighter1, fighter2) => {
 // }
 
 const startButton = () =>{
-    
+    let enemyCount = Math.floor(Math.random()*5)+3
+    shields = Math.floor(Math.random()*11)
+    player.hull += shields
     createStart()
     createFireButton('Fire')
+    createMissileButton('Missile')
     createFleeButton('Flee')
     createWoopsButton('Woops')
     createPlayer()
@@ -101,6 +104,7 @@ const startButton = () =>{
         newShip()
         createEnemy()
     }
+    
 
     
 }
@@ -122,14 +126,16 @@ const createFireButton = (btnName) =>{
     button1.classList.add(btnName)
     button1.addEventListener('click', () =>{
         center = document.querySelector('.center')
-        
         center.innerHTML=(`You Started with ${player.hull} health.<br>`);
         if(alienTeam.length == 0){
             buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
             onScreen.innerHTML = 'You Won the game. Click Start to Try again'
             player.hull = 20
             alienTeam.length = 0
+            missileCount = 3
         }else{
+            player.firepower = 5
+            turn = '1'
             battle(player, alienTeam[0])
             if(winner == 'player'){
                 center.innerHTML+=(`You Won.<br>`);
@@ -143,10 +149,54 @@ const createFireButton = (btnName) =>{
             onScreen.innerHTML = 'You Lost. Click Start to Try again'
             player.hull = 20
             alienTeam.length = 0
+            missileCount = 3
         }
     }
     })
     button1.innerHTML = btnName
+    buttons.append(button1)
+}
+const createMissileButton = (btnName) =>{
+    let button1 = document.createElement("button")
+    button1.classList.add('btn')
+    button1.classList.add(btnName)
+    button1.innerHTML = `${btnName}s - ${missileCount}`
+    button1.addEventListener('click', () =>{
+        center = document.querySelector('.center')
+        
+        if(alienTeam.length == 0){
+            buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
+            onScreen.innerHTML = 'You Won the game. Click Start to Try again'
+            player.hull = 20
+            alienTeam.length = 0
+            missileCount = 3
+        }else{
+            player.firepower = 8
+            if(missileCount>0){
+                
+                center.innerHTML=(`You Started with ${player.hull} health.<br>`);
+                center.innerHTML+=(`You fired a missile.<br>`);
+                attack(player, alienTeam[0])
+                if(alienTeam[0].hull<=0){
+                    center.innerHTML+=(`You Won.<br>`);
+                    alienTeam.shift()
+                    let enemy = document.querySelector('.enemy')
+                    enemy.remove()
+                    center.innerHTML+=(`You have ${player.hull} health remaining.<br>`);
+                    missileCount--
+                    button1.innerHTML = `${btnName}s - ${missileCount}`
+                }else if(alienTeam[0].hull>0){
+                    center.innerHTML+=(`Enemy is still alive with ${alienTeam[0].hull} health.<br>`);
+                    
+                    missileCount--
+                    button1.innerHTML = `${btnName}s - ${missileCount}`
+                }
+            }else{
+                center.innerHTML=(`You are out of Missiles.<br>`);
+            }
+    }
+    })
+    
     buttons.append(button1)
 }
 const createFleeButton = (btnName) =>{
@@ -158,6 +208,7 @@ const createFleeButton = (btnName) =>{
         onScreen.innerHTML = 'You Ran Away'
         player.hull = 20
         alienTeam.length = 0
+        missileCount = 3
     })
     button1.innerHTML = btnName
     buttons.append(button1)

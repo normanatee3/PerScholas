@@ -2,16 +2,10 @@ const onScreen = document.querySelector('.screen')
 const buttons = document.querySelector('.buttonArea')
 let playerSide ;
 let enemySide; 
-let enemyCount = 6
+let enemyCount = 8
 let fb;
 // reference winner of battle
 let winner = ''
-
-const Fire = {
-    Press(){
-        alert(`works`)
-    }
-}
 
 
 
@@ -32,7 +26,7 @@ let turn = '1'
 const newShip = () =>{
     const alienShip ={
     }
-    alienShip.name = 'alien'
+    alienShip.name = 'alien' + alienTeam.length
     alienShip.hull = Math.floor((Math.random()*4)+3)
     alienShip.firepower = Math.floor((Math.random()*3)+2)
     alienShip.accuracy = (Math.floor((Math.random()*3)+6))/10
@@ -52,9 +46,9 @@ for(let i = 0; i<enemyCount; i++){
 const attack = (attacker, target) =>{
     if(Math.random() < attacker.accuracy){
         target.hull -= attacker.firepower
-        console.log(`hit`);
+        console.log(`${attacker.name} hit for ${attacker.firepower}`);
     }else{
-        console.log(`miss`);
+        console.log(`${attacker.name} missed`);
     }
 }
 
@@ -112,6 +106,7 @@ const startButton = () =>{
 }
 const createStart = () =>{
     onScreen.innerHTML = ''
+    buttons.innerHTML = ''
     let ps = document.createElement("div")
     ps.classList.add('playerSide')
     let ce = document.createElement("div")
@@ -126,7 +121,24 @@ const createFireButton = (btnName) =>{
     button1.classList.add('btn')
     button1.classList.add(btnName)
     button1.addEventListener('click', () =>{
-        alert(`123`)
+        console.log(`You Started with ${player.hull} health.`);
+        if(alienTeam.length == 0){
+            alert(`you won the game`)
+        }else{
+            battle(player, alienTeam[0])
+            if(winner == 'player'){
+                alert(`you won`)
+            alienTeam.shift()
+            let enemy = document.querySelector('.enemy')
+            enemy.remove()
+            console.log(`You have ${player.hull} health remaining.`);
+        }else if(winner == 'enemy'){
+            alert(`you lost`)
+            buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
+            onScreen.innerHTML = 'You Lost. Click Start to Try again'
+            player.hull = 20
+        }
+    }
     })
     button1.innerHTML = btnName
     buttons.append(button1)
@@ -136,8 +148,9 @@ const createFleeButton = (btnName) =>{
     button1.classList.add('btn')
     button1.classList.add(btnName)
     button1.addEventListener('click', () =>{
-        alert(`456`)
-        
+        buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
+        onScreen.innerHTML = 'You Ran Away'
+        player.hull = 20
     })
     button1.innerHTML = btnName
     buttons.append(button1)

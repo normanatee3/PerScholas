@@ -34,7 +34,7 @@ const newShip = () =>{
     return alienShip
     
 }
-// spawns 6 ships
+
 
 
 // console.log(alienTeam[0]);

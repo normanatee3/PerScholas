@@ -7,7 +7,7 @@ let shields; // init shields
 let winner = '' // reference winner of battle
 let missileCount = 3 // init missiles
 const alienTeam = [] // init enemy team
-const alienShip ={}
+let highScore = 1
 let turn = '1' // init turn
 let credits = 0 // init currency
 let level = 1 // init level
@@ -15,6 +15,7 @@ let hullUpgrade = 0;
 let fireUpgrade = 0;
 let costHull = 50
 let costFire = 50
+let playerName;
 // player object
 const player = {
     name: 'Player',
@@ -22,9 +23,19 @@ const player = {
     firepower: 5,
     accuracy: .7
 }
+const playerNameIs = () =>{
+    const name = prompt('Please enter your name', 'Player Name')
+    if(name!=null){
+        playerName = name
+    }
+}
+playerNameIs()
 // function to create new enemy ships
 const newShip = () =>{
-    let levelMod = (Math.floor((Math.random()*level)+1))
+    const alienShip ={
+
+    }
+    let levelMod = (Math.floor((Math.random()*(level/3))+1))
     alienShip.name = 'alien' + (alienTeam.length+1)
     alienShip.hull = Math.floor(((Math.random()*4)+3)*levelMod)
     alienShip.firepower = Math.floor(((Math.random()*3)+2)+(levelMod/5))
@@ -67,7 +78,7 @@ const battle = (fighter1, fighter2) => {
 // start the game
 const startButton = () =>{
     let enemyCount = Math.floor(Math.random()*5)+3
-    shields = Math.floor(Math.random()*11)
+    shields = Math.floor((Math.random()*11)+(player.hull/2))
     player.hull = (20+hullUpgrade)
     player.firepower = (5+(fireUpgrade/5))
     player.hull += shields
@@ -81,7 +92,7 @@ const startButton = () =>{
     for(let i = 0; i<enemyCount; i++){
         newShip()
         createEnemy()
-        
+        enemyStats()
     }
 
 }
@@ -120,12 +131,18 @@ const createFireButton = (btnName) =>{
             center.innerHTML+=(`You Lost.<br>`);
             buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
             onScreen.innerHTML = 'You Lost. Click Start to Try again'
-            player.hull = 20
-            alienTeam.length = 0
-            missileCount = 3
-            hullUpgrade = 0
+            newState()
             resetCredits()
-            levelReset
+            if(level>10){
+                level-=10
+            }else{
+                if(level>highScore){
+                    let score = document.querySelector('.highScore')
+                    highScore=level
+                    score.innerHTML=`High Score: ${highScore}`
+                }
+                levelReset()
+            }
         }
     } //replaceStats(`Health: ${player.hull}`)
     })
@@ -208,7 +225,7 @@ const createEnemy = () =>{
     let enemy = document.createElement("div")
     enemy.classList.add('enemy')
     enemySide.prepend(enemy)
-    enemyStats()
+    
 }
 const winState = () =>{
     buttons.innerHTML = `            <button onclick="startButton()" class="btn">Start</button>
@@ -253,8 +270,9 @@ const levelReset = () =>{
 const goShop = () =>{
     onScreen.innerHTML=''
     hullButton()
-
+    replaceScreenText(`Cost:${costHull}`, 'hull')
     firepowerButton()
+    replaceScreenText(`Cost:${costFire}`, 'fire')
 }
 const hullButton = () =>{
     let button1 = document.createElement("button")
@@ -284,8 +302,8 @@ const firepowerButton = () =>{
             fireUpgrade+= 5
             credits-= costFire
             let creditTotal = document.querySelector('.credits')
-        creditTotal.innerHTML = `Credits: ${credits}`
-        costFire+= fireUpgrade*2
+            creditTotal.innerHTML = `Credits: ${credits}`
+            costFire+= fireUpgrade*2
         }else{
             alert(`Ya broke boi`)
         }replaceScreenText(`Cost:${costFire}`, 'fire')
@@ -313,8 +331,20 @@ const replaceScreenText = (text, id) =>{
 
 
 const playerStats = () =>{
-    document.querySelector('.player').setAttribute('title', `Health: ${player.hull} \nFirepower ${player.firepower} \nAccuracy: ${player.accuracy}`)
+    document.querySelector('.player').setAttribute('title', `Name: ${playerName} \nHealth: ${player.hull} \nFirepower ${player.firepower} \nAccuracy: ${player.accuracy}`)
 }
 const enemyStats = () =>{
-    document.querySelector('.enemy').setAttribute('title', `Health: ${alienShip.hull} \nFirepower ${alienShip.firepower} \nAccuracy: ${alienShip.accuracy}`)
+    for(i=0; i<alienTeam.length; i++){
+        let enemy = document.querySelector('.enemy')
+        enemy.setAttribute('title', `Name: ${alienTeam[i].name} \nHealth: ${alienTeam[i].hull} \nFirepower ${alienTeam[i].firepower} \nAccuracy: ${alienTeam[i].accuracy}`)
+    }
+}
+const newState = () =>{
+    player.hull = 20
+    alienTeam.length = 0
+    missileCount = 3
+    hullUpgrade = 0
+    fireUpgrade = 0
+    costHull = 50
+    costFire = 50
 }

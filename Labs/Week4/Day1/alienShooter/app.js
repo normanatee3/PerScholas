@@ -7,7 +7,7 @@ let shields; // init shields
 let winner = '' // reference winner of battle
 let missileCount = 3 // init missiles
 const alienTeam = [] // init enemy team
-
+let highScore = 1
 let turn = '1' // init turn
 let credits = 0 // init currency
 let level = 1 // init level
@@ -15,6 +15,7 @@ let hullUpgrade = 0;
 let fireUpgrade = 0;
 let costHull = 50
 let costFire = 50
+let playerName;
 // player object
 const player = {
     name: 'Player',
@@ -22,16 +23,24 @@ const player = {
     firepower: 5,
     accuracy: .7
 }
+const playerNameIs = () =>{
+    const name = prompt('Please enter your name', 'Player Name')
+    if(name!=null){
+        playerName = name
+    }
+}
+playerNameIs()
 // function to create new enemy ships
 const newShip = () =>{
     const alienShip ={
 
     }
-    let levelMod = (Math.floor((Math.random()*level)+1))
+    let levelMod = (Math.floor((Math.random()*(level/2))+1))
     alienShip.name = 'alien' + (alienTeam.length+1)
     alienShip.hull = Math.floor(((Math.random()*4)+3)*levelMod)
     alienShip.firepower = Math.floor(((Math.random()*3)+2)+(levelMod/5))
     alienShip.accuracy = (Math.floor((Math.random()*3)+6))/10
+    alienShip.maxHull = alienShip.hull
     alienTeam.push(alienShip)
     return alienShip
     
@@ -70,7 +79,7 @@ const battle = (fighter1, fighter2) => {
 // start the game
 const startButton = () =>{
     let enemyCount = Math.floor(Math.random()*5)+3
-    shields = Math.floor(Math.random()*11)
+    shields = Math.floor((Math.random()*11)+(player.hull/2))
     player.hull = (20+hullUpgrade)
     player.firepower = (5+(fireUpgrade/5))
     player.hull += shields
@@ -115,7 +124,7 @@ const createFireButton = (btnName) =>{
             center.innerHTML=(`You Started with ${player.hull} health.<br>`);
             player.firepower = (5+(fireUpgrade/5))
             turn = '1'
-            battle(player, alienTeam[0])
+            battleRound(player, alienTeam[0])
             if(winner == 'player'){
                 destroyEnemy()
                 gainCredits()
@@ -128,7 +137,11 @@ const createFireButton = (btnName) =>{
             if(level>10){
                 level-=10
             }else{
-
+                if(level>highScore){
+                    let score = document.querySelector('.highScore')
+                    highScore=level
+                    score.innerHTML=`High Score: ${highScore}`
+                }
                 levelReset()
             }
         }
@@ -231,7 +244,7 @@ const destroyEnemy = () =>{
     center.innerHTML+=(`You have ${player.hull} health remaining.<br>`);
 }
 const gainCredits = () =>{
-    credits += Math.floor(Math.random()*10)+level
+    credits += Math.floor(((Math.random()*10)+level)+(alienTeam[0].maxHull/2))
     let creditTotal = document.querySelector('.credits')
     creditTotal.innerHTML = `Credits: ${credits}`
 }
@@ -290,8 +303,8 @@ const firepowerButton = () =>{
             fireUpgrade+= 5
             credits-= costFire
             let creditTotal = document.querySelector('.credits')
-        creditTotal.innerHTML = `Credits: ${credits}`
-        costFire+= fireUpgrade*2
+            creditTotal.innerHTML = `Credits: ${credits}`
+            costFire+= fireUpgrade*2
         }else{
             alert(`Ya broke boi`)
         }replaceScreenText(`Cost:${costFire}`, 'fire')
@@ -319,12 +332,12 @@ const replaceScreenText = (text, id) =>{
 
 
 const playerStats = () =>{
-    document.querySelector('.player').setAttribute('title', `Health: ${player.hull} \nFirepower ${player.firepower} \nAccuracy: ${player.accuracy}`)
+    document.querySelector('.player').setAttribute('title', `Name: ${playerName} \nHealth: ${player.hull} \nFirepower ${player.firepower} \nAccuracy: ${player.accuracy}`)
 }
 const enemyStats = () =>{
     for(i=0; i<alienTeam.length; i++){
         let enemy = document.querySelector('.enemy')
-        enemy.setAttribute('title', `Health: ${alienTeam[i].hull} \nFirepower ${alienTeam[i].firepower} \nAccuracy: ${alienTeam[i].accuracy}`)
+        enemy.setAttribute('title', `Name: ${alienTeam[i].name} \nHealth: ${alienTeam[i].hull} \nFirepower ${alienTeam[i].firepower} \nAccuracy: ${alienTeam[i].accuracy}`)
     }
 }
 const newState = () =>{
@@ -335,4 +348,28 @@ const newState = () =>{
     fireUpgrade = 0
     costHull = 50
     costFire = 50
+}
+
+const battleRound = (fighter1, fighter2) => {
+    
+    while(fighter1.hull>0 && fighter2.hull>0){
+        if(turn == '1'){
+            // console.log(`turn 1`);
+            attack(fighter1, fighter2)
+            turn = '2'
+        }else if(turn == '2'){
+            // console.log(`turn 2`);
+            attack(fighter2, fighter1)
+            break
+        }
+    }
+    if(fighter1.hull <= 0){
+        winner = 'enemy'
+    }else if(fighter2.hull <= 0){
+        winner = 'player'
+    }else{
+        winner = ''
+        center.innerHTML+=(`Enemy is still alive with ${alienTeam[0].hull} health.<br>`);
+    }
+
 }

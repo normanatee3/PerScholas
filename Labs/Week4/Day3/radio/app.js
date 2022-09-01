@@ -61,8 +61,14 @@ const Radio ={
         stationSelection = Radio.stations[station]
         songSelection = Radio.stations[station].songs[song]
         console.log("Now Playing: " + songSelection.title + " by " + songSelection.artist + " on " + stationSelection.name)
+        alert("Now Playing: " + songSelection.title + " by " + songSelection.artist + " on " + stationSelection.name)
     }
     
 }
 
 Radio.changeStation()
+
+// let node = document.querySelector('.radio')
+// node.addEventListener('click', () =>{
+//     Radio.changeStation()
+// })

@@ -1,20 +1,23 @@
 const onScreen = document.querySelector('.screen') // reference screen area
 const buttons = document.querySelector('.buttonArea') // reference button area
-let playerSide ; // init players side of main screen
-let enemySide;  // init enemies side of main screen
-let center; // init center of main screen
+let playerSide ; 
+let enemySide;  
+let center; 
 let shields; // init shields
 let winner = '' // reference winner of battle
-let missileCount = 3 // init missiles
+let maxMissiles = 3 // init missiles
+let missileCount = maxMissiles
 const alienTeam = [] // init enemy team
 let highScore = 1
-let turn = '1' // init turn
+let turn = '1' // init players turn
 let credits = 0 // init currency
-let level = 1 // init level
+let level = 1 // game level
 let hullUpgrade = 0;
 let fireUpgrade = 0;
+let missileUpgrade = 0;
 let costHull = 50
 let costFire = 50
+let costMissile = 100
 let playerName;
 // player object
 const player = {
@@ -33,9 +36,8 @@ playerNameIs()
 // function to create new enemy ships
 const newShip = () =>{
     const alienShip ={
-
     }
-    let levelMod = (Math.floor((Math.random()*(level/2))+1))
+    let levelMod = (Math.floor((Math.random()*(level/3))+1))
     alienShip.name = 'alien' + (alienTeam.length+1)
     alienShip.hull = Math.floor(((Math.random()*4)+3)*levelMod)
     alienShip.firepower = Math.floor(((Math.random()*3)+2)+(levelMod/5))
@@ -43,7 +45,6 @@ const newShip = () =>{
     alienShip.maxHull = alienShip.hull
     alienTeam.push(alienShip)
     return alienShip
-    
 }
 // attack function
 const attack = (attacker, target) =>{
@@ -78,11 +79,12 @@ const battle = (fighter1, fighter2) => {
 }
 // start the game
 const startButton = () =>{
-    let enemyCount = Math.floor(Math.random()*5)+3
+    let enemyCount = Math.floor(Math.random()*8)+3
     shields = Math.floor((Math.random()*11)+(player.hull/2))
     player.hull = (20+hullUpgrade)
     player.firepower = (5+(fireUpgrade/5))
     player.hull += shields
+    missileCount=maxMissiles
     createStart()
     createFireButton('Fire')
     createMissileButton('Missile')
@@ -90,10 +92,17 @@ const startButton = () =>{
     createWoopsButton('Woops')
     createPlayer()
     playerStats()
-    for(let i = 0; i<enemyCount; i++){
-        newShip()
+    if(level % 10 === 0){
+        bossShip()
         createEnemy()
         enemyStats()
+        styleBoss()
+    }else{
+        for(let i = 0; i<enemyCount; i++){
+            newShip()
+            createEnemy()
+            enemyStats()
+        }
     }
 
 }
@@ -124,28 +133,30 @@ const createFireButton = (btnName) =>{
             center.innerHTML=(`You Started with ${player.hull} health.<br>`);
             player.firepower = (5+(fireUpgrade/5))
             turn = '1'
-            battleRound(player, alienTeam[0])
+            battleRound(player, alienTeam[alienTeam.length-1])
             if(winner == 'player'){
-                destroyEnemy()
                 gainCredits()
+                destroyEnemy()
         }else if(winner == 'enemy'){
             center.innerHTML+=(`You Lost.<br>`);
             buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
             onScreen.innerHTML = 'You Lost. Click Start to Try again'
             newState()
             resetCredits()
+            if(level>highScore){
+                let score = document.querySelector('.highScore')
+                highScore=level
+                score.innerHTML=`High Score: ${highScore}`
+            }
             if(level>10){
                 level-=10
             }else{
-                if(level>highScore){
-                    let score = document.querySelector('.highScore')
-                    highScore=level
-                    score.innerHTML=`High Score: ${highScore}`
-                }
+
                 levelReset()
             }
+            
         }
-    } //replaceStats(`Health: ${player.hull}`)
+    } 
     })
     button1.innerHTML = btnName
     buttons.append(button1)
@@ -169,8 +180,8 @@ const createMissileButton = (btnName) =>{
                 center.innerHTML+=(`You fired a missile.<br>`);
                 attack(player, alienTeam[0])
                 if(alienTeam[0].hull<=0){
-                    destroyEnemy()
                     gainCredits()
+                    destroyEnemy()
                     missileCount--
                 }else if(alienTeam[0].hull>0){
                     center.innerHTML+=(`Enemy is still alive with ${alienTeam[0].hull} health.<br>`);
@@ -190,11 +201,12 @@ const createFleeButton = (btnName) =>{
     button1.classList.add('btn')
     button1.classList.add(btnName)
     button1.addEventListener('click', () =>{
-        buttons.innerHTML = '<button onclick="startButton()" class="btn">Start</button>'
+        buttons.innerHTML = `            <button onclick="startButton()" class="btn">Start</button>
+        <button onclick="goShop()" class="btn">Upgrades</button>`
         onScreen.innerHTML = 'You Ran Away and lost half your Credits'
         player.hull = (20+hullUpgrade)
         alienTeam.length = 0
-        missileCount = 3
+        missileCount = maxMissiles
         fleeCredits()
         
     })
@@ -234,11 +246,11 @@ const winState = () =>{
     onScreen.innerHTML = 'You Beat The Level. Click Start To Move On'
     player.hull = (20+hullUpgrade)
     alienTeam.length = 0
-    missileCount = 3
+    missileCount = maxMissiles
 }
 const destroyEnemy = () =>{
     center.innerHTML+=(`You Won.<br>`);
-    alienTeam.shift()
+    alienTeam.pop()
     let enemy = document.querySelector('.enemy')
     enemy.remove()
     center.innerHTML+=(`You have ${player.hull} health remaining.<br>`);
@@ -274,6 +286,8 @@ const goShop = () =>{
     replaceScreenText(`Cost:${costHull}`, 'hull')
     firepowerButton()
     replaceScreenText(`Cost:${costFire}`, 'fire')
+    missileButton()
+    replaceScreenText(`Cost:${costMissile}`, 'missile')
 }
 const hullButton = () =>{
     let button1 = document.createElement("button")
@@ -313,7 +327,6 @@ const firepowerButton = () =>{
     onScreen.appendChild(button1)
     insertScreenText(`Cost:${costFire}`, 'fire')
 }
-
 const insertScreenText = (text, id) =>{
     const type = document.createElement('p')
     type.setAttribute('Class', `price ${id}`)
@@ -329,8 +342,6 @@ const replaceScreenText = (text, id) =>{
     let oldChild = document.querySelector(`.${id}`)
     document.querySelector('.screen').replaceChild(type, oldChild)
 }
-
-
 const playerStats = () =>{
     document.querySelector('.player').setAttribute('title', `Name: ${playerName} \nHealth: ${player.hull} \nFirepower ${player.firepower} \nAccuracy: ${player.accuracy}`)
 }
@@ -343,13 +354,13 @@ const enemyStats = () =>{
 const newState = () =>{
     player.hull = 20
     alienTeam.length = 0
-    missileCount = 3
+    maxMissiles = 3
+    missileCount = maxMissiles
     hullUpgrade = 0
     fireUpgrade = 0
     costHull = 50
     costFire = 50
 }
-
 const battleRound = (fighter1, fighter2) => {
     
     while(fighter1.hull>0 && fighter2.hull>0){
@@ -373,3 +384,42 @@ const battleRound = (fighter1, fighter2) => {
     }
 
 }
+const missileButton = () =>{
+    let button1 = document.createElement("button")
+    button1.classList.add('btn')
+    button1.addEventListener('click', () =>{
+
+        if(credits >= costMissile){
+            missileUpgrade+= 1
+            maxMissiles++
+            credits-= costMissile
+            let creditTotal = document.querySelector('.credits')
+            creditTotal.innerHTML = `Credits: ${credits}`
+            costMissile+= missileUpgrade*70
+        }else{
+            alert(`Ya broke boi`)
+        }replaceScreenText(`Cost:${costMissile}`, 'missile')
+    })
+    button1.innerHTML = `MISSILE`
+    onScreen.appendChild(button1)
+    insertScreenText(`Cost:${costMissile}`, 'missile')
+}
+const bossShip = () =>{
+    const alienShip ={
+
+    }
+    let levelMod = (Math.floor((Math.random()*(level/5))+1))
+    alienShip.name = 'alien boss' + (alienTeam.length+1)
+    alienShip.hull = Math.floor((((Math.random()*6)+10)*5)*levelMod)
+    alienShip.firepower = Math.floor(((Math.random()*4)+3)+(levelMod/5))
+    alienShip.accuracy = (Math.floor((Math.random()*3)+6))/10
+    alienShip.maxHull = alienShip.hull
+    alienTeam.push(alienShip)
+    return alienShip
+    
+}
+const styleBoss = () => {
+    let target = document.querySelector('.enemy')
+    target.classList.add('boss')
+}
+// done

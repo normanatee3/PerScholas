@@ -15,25 +15,48 @@ const clickDrop = () => {
 const sun = () => {
         let target = document.querySelector('.topContainer')
         target.classList.toggle('sun')
+        target.classList.remove('snow', 'rain', 'cloud', 'city')
 }
 const snow = () => {
     let target = document.querySelector('.topContainer')
     target.classList.toggle('snow')
+    target.classList.remove('sun', 'rain', 'cloud', 'city')
 }
 const rain = () => {
     let target = document.querySelector('.topContainer')
     target.classList.toggle('rain')
+    target.classList.remove('snow', 'sun', 'cloud', 'city')
 }
 const cloud= () => {
     let target = document.querySelector('.topContainer')
     target.classList.toggle('cloud')
+    target.classList.remove('snow', 'rain', 'sun', 'city')
 }
 const city = () => {
     let target = document.querySelector('.topContainer')
     target.classList.toggle('city')
+    target.classList.remove('snow', 'rain', 'cloud', 'sun')
 }
+
+const changeShape = () => {
+    let target = document.querySelector('.topContainer')
+    target.classList.toggle('norman')
+}
+
 
 const changeColor = () => {
     let target = document.querySelector('.topContainer')
-    target.classList.toggle('norman')
+    target.classList.remove('snow', 'rain', 'cloud', 'sun', 'city')
+    let x = Math.floor(Math.random()*256)
+    let y = Math.floor(Math.random()*256)
+    let z = Math.floor(Math.random()*256)
+    let random = `rgb(${x}, ${y}, ${z})`
+    target.style.backgroundColor = random
+}
+
+const shakyButtons = () => {
+    let target = document.querySelectorAll('.colors')
+    for(i=0; i<target.length; i++){
+        target[i].classList.toggle('shaking')
+    }
 }

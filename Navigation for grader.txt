@@ -1,0 +1,18 @@
+Navigation for Grading: 
+In case you cant find something easily.
+
+Nike Mockup: Labs/Week2/Day1
+Restaurant Objects Mockup:Homework/Week2/Day2
+Tokyo Bikes:Homework/Week2/Day3
+StarWars Terminal Practice: Labs/Week1
+Hospital BootstrapMockup : Labs/Week3/Day3
+Movie Mockup: Labs/Week3/Day2
+My First Game: Labs/Week3/Day4
+Flexbox Froggy Screenshot [1-12]:Labs/Week1
+Dom Manipulation Assignment [3interactive elements]:Labs/Week2/Day4
+Interactive Resume Mockup: Homework/Week2/Day4
+Classes Exercise : Labs/Week3/Day4
+Javascript Functions {maxOf2Nums}: Homework/Week1/Day4
+Javascript Total Recall {A.Q+A}:Homework/Week3/Day1
+Space Battle: Labs/Week4/Day1
+Radio Object: Labs/Week4/Day3

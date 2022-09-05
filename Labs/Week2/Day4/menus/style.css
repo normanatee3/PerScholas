@@ -166,3 +166,15 @@ span {
     transition: 5s;
 }
 
+.colors{
+    position: relative;
+    
+}
+.shaking{
+    animation: shake infinite 1s linear;
+}
+@keyframes shake {
+    0%{top: 0;}
+    50%{top: 20px;}
+    100%{top: 0;}
+}

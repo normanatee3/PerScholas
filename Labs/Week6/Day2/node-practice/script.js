@@ -1,4 +1,9 @@
-let daysOfWeek = require('./days-of-week');
+const request = require("./node-stuff/node_modules/request")
 
-let day = daysOfWeek.getWeekday(7);
-console.log(day);
+request(
+    'https://www.nike.com',
+    function(err, res, body) {
+        console.log(body)
+        console.log(err)
+    }
+);

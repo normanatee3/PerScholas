@@ -52,16 +52,19 @@ app.get('/magic/:question', (req, res) =>{
 app.get('/fibonacci/:num/', (req, res) =>{
     let fib = [0, 1]
     
-    for(i=2; i<10; i++){
+    for(i=2; i<100; i++){
         newFib = fib[i-1] + fib[i-2]
         fib.push(newFib)
     }
+
     let message = 0
+
     fib.forEach(el =>{
-        if(parseInt(req.params.num) === fib[el]){
+        if(parseInt(req.params.num) === el){
             message += 1 
         }
     })
+    
     if(message > 0){
         res.send("Very good. It is Fibonacci.")
     }else{

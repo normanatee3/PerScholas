@@ -16,4 +16,7 @@ const fruits = [
     }
 ];
 
-module.exports = fruits
+const apple = 'sweet'
+
+module.exports.array = fruits
+module.exports.string = apple

@@ -52,9 +52,10 @@ app.get('/magic/:question', (req, res) =>{
 app.get('/fibonacci/:num/', (req, res) =>{
     let fib = [0, 1]
     
-    for(i=2; i<100; i++){
-        newFib = fib[i-1] + fib[i-2]
+    while(parseInt(req.params.num) > fib[fib.length-1]){
+        newFib = fib[fib.length-1] + fib[fib.length-2]
         fib.push(newFib)
+        console.log(fib);
     }
 
     let message = 0

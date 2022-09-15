@@ -55,8 +55,8 @@ app.get('/fibonacci/:num/', (req, res) =>{
     while(parseInt(req.params.num) > fib[fib.length-1]){
         newFib = fib[fib.length-1] + fib[fib.length-2]
         fib.push(newFib)
-        console.log(fib);
     }
+    console.log(fib);
 
     let message = 0
 

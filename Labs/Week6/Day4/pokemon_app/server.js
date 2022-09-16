@@ -10,6 +10,9 @@ app.get('/', (req, res)=>{
 app.get('/pokemon', (req, res)=>{
     res.render('Index.ejs', {pokemon})
 })
+app.get('/pokemon/:id', (req, res)=>{
+    res.send(req.params.id)
+})
 
 
 

@@ -27,10 +27,10 @@ app.get('/:bottle', (req, res)=>{
         newBottles = (oldBottles + Math.floor(Math.random()*10)).toString()
     }
     res.send(
-        `<h1>`+ req.params.bottle + ` game breaking bugs in the code </h1>`
-        + `<h1>`+ req.params.bottle + ` game breaking bugs</h1>`
-        + `<h1><a href="/` + newBottles + `">ya take one down, patch it around</a></h1>` 
-        + `<h1>` + newBottles + ` game breaking bugs in the code.</h1>`)
+        `<h1>${req.params.bottle}game breaking bugs in the code </h1>`
+        + `<h1>${req.params.bottle}game breaking bugs</h1>`
+        + `<h1><a href="/${newBottles}">ya take one down, patch it around</a></h1>` 
+        + `<h1>${newBottles} game breaking bugs in the code.</h1>`)
 })
 
 

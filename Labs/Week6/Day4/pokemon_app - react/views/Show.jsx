@@ -1,14 +1,15 @@
 const React = require('react')
 class Show extends React.Component {
     render () {
-        const mon = this.props.mon
+        const poke = this.props.mon
         return (
             <div>
                 <h1> Cotta Catch 'Em All! </h1>
                 <h2>
-                    {mon.name.charAt(0).toUpperCase() + mon.name.slice(1)}
+                    {poke.name.charAt(0).toUpperCase() + poke.name.slice(1)}
                 </h2>
-                <img src= {mon.img + '.jpg'} alt="" />
+                <img src= {poke.img + '.jpg'} alt="" />
+                <br></br>
                 <a href="/pokemon">BACK</a>
             </div>
         );

@@ -10,12 +10,9 @@ class Index extends React.Component {
                     {pokemon.map((mon, i) => {
                         return (
                             <li>
-
                                 <a href={`/pokemon/${i}`}>
                                     {mon.name.charAt(0).toUpperCase() + mon.name.slice(1)}
                                 </a>{' '}
-
-
                                 <br />
                             </li>
                         );

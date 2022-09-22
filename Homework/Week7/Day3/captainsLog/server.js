@@ -4,7 +4,7 @@ const app = express()
 const mongoose = require('mongoose')
 const Log = require('./models/logs')
 require('dotenv').config()
-
+const methodOverride = require('method-override')
 // connect to mongo
 mongoose.connect(process.env.MONGO_URI).then(()=>{
     console.log('connected to mongoDB');
@@ -17,7 +17,7 @@ app.engine('jsx', require('express-react-views').createEngine())
 // body parser
 app.use(express.urlencoded({extended:false}))
 
-
+app.use(methodOverride('_method'))
 
 
 
@@ -37,7 +37,7 @@ app.get('/logs/new', (req, res)=>{
 // Index Route
 app.get('/logs', (req, res)=>{
     Log.find({}, (err, allLogs)=>{
-        console.log(err);
+        // console.log(err);
         // console.log('Found:', allLogs);
         res.render('Index', {logs: allLogs})
     })
@@ -51,17 +51,25 @@ app.post('/logs', (req, res)=>{
         req.body.shipIsBroken = false
     }
     Log.create(req.body, (err, createdLog)=>{
-        console.log(err);
+        // console.log(err);
         console.log("Created:", createdLog);
     })
     res.redirect('/logs')
 })
 
+// delete route
+app.delete('/logs/:id', (req, res)=>{
+    Log.findByIdAndRemove(req.params.id, (err, foundLog)=>{
+        // console.log(err);
+        // console.log('Deleted:', foundLog);
+        res.redirect('/logs')
+    })
+})
 
 // Show Route
 app.get('/logs/:id', (req, res)=>{
     Log.findById(req.params.id, (err, foundLog)=>{
-        console.log(err);
+        // console.log(err);
         res.render('Show', {log: foundLog})
     })
     

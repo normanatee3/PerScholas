@@ -1,5 +1,4 @@
 // requirements
-const { jsxClosingFragment } = require('@babel/types')
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -58,6 +57,15 @@ app.post('/logs', (req, res)=>{
     res.redirect('/logs')
 })
 
+
+// Show Route
+app.get('/logs/:id', (req, res)=>{
+    Log.findById(req.params.id, (err, foundLog)=>{
+        console.log(err);
+        res.render('Show', {log: foundLog})
+    })
+    
+})
 
 app.listen(3000, (req, res)=>{
     console.log('listening on 3k');

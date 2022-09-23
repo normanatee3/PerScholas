@@ -19,6 +19,8 @@ app.use(express.urlencoded({extended:false}))
 
 app.use(methodOverride('_method'))
 
+app.use(express.static('public')); //tells express to try to match requests with files in the directory called 'public'
+
 
 
 
@@ -85,6 +87,8 @@ app.get('/logs/:id', (req, res)=>{
     })
     
 })
+
+
 
 // edit route
 app.get('/logs/:id/edit', (req, res)=>{

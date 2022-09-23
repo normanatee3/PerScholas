@@ -1,8 +1,11 @@
 const React = require('react')
+const DefaultLayout = require("./layouts/default");
 
 class Show extends React.Component{
     render(){
         return(
+            <DefaultLayout title="Show Page">
+
             <div>
                 <h1>CAPTAINS LOGS</h1>
                 <h2>{this.props.log.title}</h2>
@@ -20,6 +23,7 @@ class Show extends React.Component{
 
             
             </div>
+                </DefaultLayout>
         )
     }
 }

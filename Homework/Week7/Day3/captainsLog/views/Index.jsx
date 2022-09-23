@@ -1,5 +1,5 @@
-
 const React = require('react')
+const DefaultLayout = require("./layouts/default");
 
 class Index extends React.Component{
     render(){
@@ -12,11 +12,21 @@ class Index extends React.Component{
             textAlign: 'center',
             
         }
-        const white = {color: 'white'}
+        const white = {
+            reallyWhite:{
+                color: 'white'
+
+            },
+            justKidding:{
+                color: 'black'
+            }
+        }
         const {logs} = this.props
         return(
+            <DefaultLayout title="Index Page">
+
             <div style={center}>
-                <h1 style={white}>CAPTAINS LOGS</h1>
+                <h1 style={white.justKidding}>CAPTAINS LOGS</h1>
                 <a href="/logs/new">
                     <h2 style={white}>Enter New Log</h2>
                 </a>
@@ -45,6 +55,7 @@ class Index extends React.Component{
                 
 
             </div>
+                    </DefaultLayout>
         )
     }
 }

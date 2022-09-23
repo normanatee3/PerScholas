@@ -10,6 +10,8 @@ class Show extends React.Component{
                 <h3>{this.props.log.shipIsBroken
                 ? "The ship is damaged! We need help soon or..."
                 : "Our ship is still holding on..."}</h3>
+
+                <h4>Last update : {this.props.log.updatedAt.toString()}</h4>
                 <br /><br /><br />
                 <a href="/logs">See all logs</a>
         

@@ -40,7 +40,7 @@ app.get('/logs', (req, res)=>{
         // console.log(err);
         // console.log('Found:', allLogs);
         res.render('Index', {logs: allLogs})
-    })
+    }).sort({createdAt:-1})
 })
 
 // Create Route

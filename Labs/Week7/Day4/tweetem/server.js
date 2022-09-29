@@ -6,7 +6,6 @@ const methodOverride = require('method-override')
 const Tweet = require('./models/tweets')
 const Comment = require('./models/comments')
 const User = require('./models/users')
-const { tryStatement } = require('@babel/types')
 app.locals.loggedIn = false
 app.locals.loggedUser = ''
 
@@ -63,16 +62,22 @@ app.post('/login', (req, res)=>{
     console.log(req.body);
     
     User.find({username: req.body.username}, (err, foundUser)=>{
-        console.log("Found:", foundUser[0].username)
-        if(req.body.password === foundUser[0].password){
-            app.locals.loggedIn = true
-            app.locals.loggedUser = foundUser[0].username.toString()
-            console.log('User ', app.locals.loggedUser, ' logged in = ', app.locals.loggedIn);
-            res.redirect('/tweets')
+        if(err){
+            console.log(err);
         }else{
-            console.log('User', req.body.username, 'logged in =', app.locals.loggedIn);
-            res.redirect('/login')
-        }
+
+            console.log("Found:", foundUser[0].username)
+            if(req.body.password === foundUser[0].password){
+                app.locals.loggedIn = true
+                app.locals.loggedUser = foundUser[0].username.toString()
+                console.log('User ', app.locals.loggedUser, ' logged in = ', app.locals.loggedIn);
+                res.redirect('/tweets')
+            }else{
+                console.log('User', req.body.username, 'logged in =', app.locals.loggedIn);
+                res.redirect('/login')
+            }
+        } 
+        
     })
 })
 

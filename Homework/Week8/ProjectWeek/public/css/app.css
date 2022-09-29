@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Righteous');
+
+body {
+    background: url(http://static1.squarespace.com/static/52ff850ae4b05db46b63a4ac/531a52a6e4b089910eb5fe3d/573b72c1f699bbd9586c5766/1467059973506/?format=1500w);
+    margin: 0;
+    font-family: 'Comfortaa', cursive;
+    background-size: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.side{
+    display: flex;
+    padding: .1em;
+    margin: .1em;
+    justify-content: space-around;
+}
+.bodyWide{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1 {
+    font-family: 'Righteous', cursive;
+    background: rgb(50, 43, 30);
+    margin: 0;
+    margin-bottom: .5em;
+    padding: 1em;
+    text-align: center;
+    border-radius: 15px;
+    width: 50%;
+}
+h2 {
+    text-align: center;
+    background-color: rgba(240, 248, 255, 0.6);
+    width: 100%;
+    padding: 1em;
+    border-radius: 5px;
+
+}
+.button {
+    color: rgb(70, 95, 45);
+    text-decoration: none;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    font-size: 1em;
+    font-weight: 400;
+    background-color: rgb(50, 43, 30);
+    padding: .2em;
+    border-radius: 5px;
+    width: fit-content;
+    border: solid rgb(70, 95, 45);
+    font-family: 'Righteous', cursive;
+    margin-top: .5em;
+    /* margin-bottom: 1em; */
+
+}
+
+.button:hover {
+    color: ghostwhite;
+    border: solid rgb(101, 65, 30);
+
+
+}
+.bar{
+    width: 100%;
+    font-size: 2em;
+}
+
+h3, p, h4{
+    color: ghostwhite;
+}
+li {
+    list-style: none;
+    color: ghostwhite;
+    background-color: rgba(240, 248, 255, 0.6);
+    width: 45%;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 5px;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+input[type=text], input[type=password] {
+    margin-left: .7em
+}
+textarea{
+    resize: none;
+    border: solid 5px rgb(101, 65, 30);
+    border-radius: 3px;
+
+}
+li a {
+    color:  rgb(101, 65, 30);
+}
+form {
+    color: white;
+    text-align: center;
+    background-color: rgba(240, 248, 255, 0.6);
+    width: 50%;
+    padding: 2em;
+    border-radius: 5px;
+
+}
+.hide{
+    color: white;
+    text-align: center;
+    background-color: rgba(240, 248, 255, 0.0);
+    width: fit-content;
+    padding: 0em;
+    border-radius: 0px;
+}
+.small{
+    padding: 0;
+}
+.tweetBox {
+    background-color: rgba(240, 248, 255, 0.6);
+    width: 50%;
+    margin: 1em;
+    padding: 2em;
+    border-radius: 5px;
+}
+.logout{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+.gamePic{
+    width: 100%;
+}

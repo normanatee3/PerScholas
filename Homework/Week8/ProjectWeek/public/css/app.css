@@ -121,7 +121,7 @@ form {
 .small{
     padding: 0;
 }
-.tweetBox {
+.gameBox {
     background-color: rgba(240, 248, 255, 0.6);
     width: 50%;
     margin: 1em;
@@ -135,4 +135,14 @@ form {
 }
 .gamePic{
     width: 100%;
+}
+.buttonBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    left: 0;
 }

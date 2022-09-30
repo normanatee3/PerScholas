@@ -5,7 +5,7 @@ class New extends React.Component {
     render() {
 
         return (
-            <DefaultLayout title="New Tweet">
+            <DefaultLayout title="New Game">
 
                 <div className='bodyWide'>
 
@@ -25,7 +25,11 @@ class New extends React.Component {
 
 
                     </form>
+                    
                     <a className='button' href="/games">BACK TO GAMES</a><br />
+
+                    
+
                 </div>
             </DefaultLayout>
         )

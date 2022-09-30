@@ -15,7 +15,7 @@ class Edit extends React.Component {
                         <input className='button' type="submit" value="LOG OUT" />
                     </form >
 
-                    <form className='tweetBox' action={`/games/${game.title}?_method=PUT`} method='POST'>
+                    <form className='gameBox' action={`/games/${game.title}?_method=PATCH`} method='POST'>
 
                         Game Title:<br /> <input type="text" defaultValue={game.title} name='title' required /><br />
                         Developer:<br /> <input type="text" defaultValue={game.dev} name='dev' required /><br />
@@ -30,7 +30,39 @@ class Edit extends React.Component {
 
 
                     </form>
-                    <a className='button' href="/games">BACK TO FEED</a><br />
+                    
+                    <a className='button' href={`/games/${game.title}`}>BACK TO GAME</a><br />
+                    
+
+                    <form action="/dlc/post" method='POST'>
+                        <h3>NEW DLC?</h3>
+                        <input type="hidden" name='game' value={game.title} />
+                        DLC Title:<br /> <input type="text" name='title' required /><br />
+                        Description:<br />
+                        <textarea rows="5" cols="30" name='description' required /><br />
+                        Price:<br /> <input type="text" name='price' required /><br />
+                        Image Link: <br /> <input type="text" name='image' required defaultValue={'https://react.semantic-ui.com/images/wireframe/image.png'} /><br />
+                        <input className='button' type="submit" value='LIST DLC' /><br />
+
+
+
+                    </form>
+                    <br /><br />
+                    <form action="/achievements/post" method='POST'>
+                        <h3>NEW ACHIEVEMENT?</h3>
+                        <input type="hidden" name='parent_product' value={game.title} />
+                        Achievement Title:<br /> <input type="text" name='title' required /><br />
+                        Unlock Condition:<br />
+                        <textarea rows="5" cols="30" name='unlock' required /><br />
+                        Score Value:<br /> <input type="text" name='score' required /><br />
+                        Image Link: <br /> <input type="text" name='image' required defaultValue={'https://react.semantic-ui.com/images/wireframe/image.png'} /><br />
+                        <input className='button' type="submit" value='LIST ACHIEVEMENT' /><br />
+
+
+
+                    </form>
+
+                    <br /><br />
                 </div>
             </DefaultLayout>
         )

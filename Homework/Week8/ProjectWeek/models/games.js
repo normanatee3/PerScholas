@@ -7,7 +7,6 @@ const gameSchema = new mongoose.Schema( {
     dev: {type:String,required:true},
     description: {type:String},
     price: {type:String,required:true},
-    dlc: [{type:String}],
     image: {type:String,required:true,default:'https://react.semantic-ui.com/images/wireframe/image.png'}
 
     })

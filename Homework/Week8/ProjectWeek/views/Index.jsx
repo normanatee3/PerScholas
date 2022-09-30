@@ -31,6 +31,10 @@ class Index extends React.Component {
 
                                     <img src={game.image} alt="Broken Image" className="gamePic" />
                                 </a>
+                                <form className='hide' action={`/buy/${game.title}?_method=PATCH`} method='POST'>
+
+                                <input className='button' type="submit" value='BUY NOW' />
+                                </form>
 
 
 

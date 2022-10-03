@@ -3,7 +3,6 @@ const { title } = require('process')
 
 const gameSchema = new mongoose.Schema( {
     title: {type:String,unique:true,required:true},
-    link: {type:String, unique:true, required:true},
     dev: {type:String,required:true},
     description: {type:String},
     price: {type:String,required:true},

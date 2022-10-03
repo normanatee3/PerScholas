@@ -4,8 +4,8 @@ const DefaultLayout = require("./layouts/default");
 class Index extends React.Component {
     render() {
 
-        const { games } = this.props
-        const { user } = this.props
+        const { games, username } = this.props
+        
         return (
             <DefaultLayout title="Shop All Games">
 
@@ -15,12 +15,17 @@ class Index extends React.Component {
                         <input className='button' type="submit" value="LOG OUT" />
                     </form >
 
+                    {/* my profile button */}
+                    <a href={`/profile/${username}`} className="profile button">MY PROFILE</a>
+                    {/* hide for users */}
+                    {username === 'admin' ?
                     <a className='hide' href="/games/new">
                         <h2 className='button bar'>LIST A NEW GAME</h2>
                     </a>
+                    :<></>}
                     <ul>
                         {games.map((game, i) => {
-                            return <li key={i} >
+                            return <li className='gameBox' key={i} >
 
                                 <div className="side">
                                     <h3>{game.title}</h3>
@@ -31,10 +36,7 @@ class Index extends React.Component {
 
                                     <img src={game.image} alt="Broken Image" className="gamePic" />
                                 </a>
-                                <form className='hide' action={`/buy/${game.title}?_method=PATCH`} method='POST'>
-
-                                <input className='button' type="submit" value='BUY NOW' />
-                                </form>
+                                
 
 
 

@@ -7,7 +7,7 @@ class Signup extends React.Component {
             <DefaultLayout title="NUMA">
 
                 <div className='bodyWide'>
-                <h2>NEW USER SIGN UP</h2>
+                <h2 className='smallBanner'>NEW USER SIGN UP</h2>
 
 
                     <form action="/signup" method='POST'>

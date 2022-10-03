@@ -9,7 +9,7 @@ class DefaultLayout extends React.Component {
                         <link rel="stylesheet" href="/css/app.css" />
                     </head>
                     <body>
-                        <h1>{this.props.title}</h1>
+                        <h1 className="titleBanner">{this.props.title}</h1>
                         {this.props.children}
                     </body>
                 </html>

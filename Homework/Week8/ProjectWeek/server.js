@@ -17,6 +17,15 @@ const Review = require('./models/reviews')
 // connect to mongoose
 mongoose.connect(process.env.MONGO_URI).then(() => {
     console.log('connected to MONGO');
+    //////test
+    // console.log(app.locals.loggedUser)
+    // User.findOneAndUpdate({username: app.locals.loggedUser},{$pull: {achievements: 'achievement'}},{ new: true}, (err, foundUser)=>{
+        
+
+    
+    
+    //     console.log('Updated:', foundUser)
+    // })
 })
 
 // view engine
@@ -26,8 +35,8 @@ app.engine('jsx', require('express-react-views').createEngine())
 /////////////////////////////////////
 // Local
 /////////////////////////////////////
-app.locals.loggedIn = true
-app.locals.loggedUser = 'admin'
+app.locals.loggedIn = false
+app.locals.loggedUser = ''
 
 /////////////////////////////////////
 // Middleware
@@ -112,7 +121,7 @@ app.post('/logout', (req, res) => {
 app.get('/games', (req, res) => {
     if (app.locals.loggedIn === true) {
         Game.find({}, (err, allGames) => {
-            res.render('Index', { games: allGames, user: app.locals.loggedUser })
+            res.render('Index', { games: allGames, username: app.locals.loggedUser })
         }).sort({ createdAt: -1 })
     } else if (app.locals.loggedIn === false) {
 
@@ -132,13 +141,6 @@ app.get('/games/new', (req, res) => {
 })
 
 app.post('/games/post', (req, res) => {
-
-    // unravel
-    let preLink = req.body.title
-    preLink.replace(/[^\W_]/g)
-    console.log(preLink);
-    req.body.link = preLink
-    // unravel^
 
     Game.create(req.body, (err, createdGame) => {
         console.log("Created:", createdGame)
@@ -170,13 +172,103 @@ app.get('/games/:gameID', (req, res) => {
                 Review.find({ parent_product: foundGame.title }, (err, allReviews) => {
                     Achievement.find({ parent_product: foundGame.title }, (err, allAchievements) => {
 
-                        res.render('Show', { game: foundGame, dlc: allDlc, user: app.locals.loggedUser, reviews: allReviews, achievements: allAchievements })
+                        res.render('Show', { game: foundGame, dlc: allDlc, username: app.locals.loggedUser, reviews: allReviews, achievements: allAchievements })
                     })
                 })
             })
         })
     } else if (app.locals.loggedIn === false) {
 
+        res.redirect('/login')
+    }
+})
+
+app.patch('/buyDlc/:dlcID/', (req, res)=>{
+    Dlc.findById(req.params.dlcID, (err, foundDlc)=>{
+
+        User.findOneAndUpdate({username: app.locals.loggedUser},{$push: {dlcOwned: foundDlc._id}},{ new: true}, (err, foundUser)=>{
+            
+            res.redirect('/games')
+            
+            
+            console.log('Updated:', foundUser)
+        })
+    })
+})
+
+app.patch('/buyGame/:gameID/', (req, res)=>{
+    Game.findOne({title: req.params.gameID}, (err, foundGame)=>{
+
+        User.findOneAndUpdate({username: app.locals.loggedUser},{$push: {gamesOwned: foundGame._id}},{ new: true}, (err, foundUser)=>{
+            
+            res.redirect('/games')
+            
+            
+            console.log('Updated:', foundUser)
+        })
+    })
+})
+
+app.patch('/unlock/:achievementID/', (req, res)=>{
+    Achievement.findById(req.params.achievementID, (err, foundAchievement)=>{
+        User.findOneAndUpdate({username: app.locals.loggedUser},{$push: {achievements: foundAchievement._id}},{ new: true}, (err, foundUser)=>{
+            
+            res.redirect('/games')
+            
+            
+            console.log('Updated:', foundUser)
+        })
+    })
+})
+
+
+app.post('/games/:gameID/update', (req, res) => {
+    req.body.user = app.locals.loggedUser
+    req.body.parent_product = req.params.gameID
+    Review.create(req.body, (err, createdReview) => {
+        console.log(createdReview);
+    })
+    res.redirect(`/games/${req.params.gameID}`)
+})
+
+/////////////////////////////////////DLC/Achievement SHOW/////
+
+app.patch('/dlcUpdate/:dlcID', (req, res) => {
+    Dlc.findByIdAndUpdate(req.params.dlcID, req.body, (err, foundDlc) => {
+        Game.findOne({ title: foundDlc.game }, (err, foundGame) => {
+            console.log('Updated: ', foundDlc.title, 'on', foundGame.title)
+            res.redirect(`/games/${foundGame.title}`)
+        })
+    })
+})
+
+app.get('/games/:gameID/dlc/:dlcID', (req, res)=>{
+    if (app.locals.loggedIn === true) {
+        Dlc.findOne({title: req.params.dlcID}, (err, foundDlc)=>{
+            res.render('Dlc', {dlc: foundDlc, game: req.params.gameID, username: app.locals.loggedUser})
+        })
+        
+    } else if (app.locals.loggedIn === false) {
+        res.redirect('/login')
+    }
+})
+
+app.patch('/achievementUpdate/:achievementID', (req, res) => {
+    Achievement.findByIdAndUpdate(req.params.achievementID, req.body, (err, foundAchievement) => {
+        Game.findOne({ title: foundAchievement.parent_product }, (err, foundGame) => {
+            console.log('Updated: ', foundAchievement.title, 'on', foundGame.title)
+            res.redirect(`/games/${foundGame.title}`)
+        })
+    })
+})
+
+app.get('/games/:gameID/achievements/:achievementID', (req, res)=>{
+    if (app.locals.loggedIn === true) {
+        Achievement.findOne({title: req.params.achievementID}, (err, foundAchievement)=>{
+            res.render('Achievement', {achievement: foundAchievement, game: req.params.gameID, username: app.locals.loggedUser})
+        })
+        
+    } else if (app.locals.loggedIn === false) {
         res.redirect('/login')
     }
 })
@@ -188,7 +280,7 @@ app.get('/reviews/:reviewID', (req, res) => {
         Review.findById(req.params.reviewID, (err, foundReview) => {
             Game.findOne({ title: foundReview.parent_product }, (err, foundGame) => {
                 // console.log(foundGame);
-                res.render('Review', { user: app.locals.loggedUser, review: foundReview, game: foundGame })
+                res.render('Review', { username: app.locals.loggedUser, review: foundReview, game: foundGame })
             })
         })
     } else if (app.locals.loggedIn === false) {
@@ -206,31 +298,42 @@ app.patch('/reviews/:reviewID', (req, res) => {
 })
 
 
-app.post('/games/:gameID/update', (req, res) => {
-    req.body.user = app.locals.loggedUser
-    req.body.parent_product = req.params.gameID
-    Review.create(req.body, (err, createdReview) => {
-        console.log(createdReview);
-    })
-    res.redirect(`/games/${req.params.gameID}`)
+
+///////////////////////////USER SHOW/////////
+
+app.get('/profile/:userID', (req, res) => {
+    if (app.locals.loggedIn === true) {
+        User.findOne({username: req.params.userID}, (err, foundUser)=>{
+            res.render('Profile', {user: foundUser, username: app.locals.loggedUser})
+        }).populate('gamesOwned').populate('dlcOwned').populate('achievements')
+    } else if (app.locals.loggedIn === false) {
+        res.redirect('/login')
+    }
 })
 
-app.patch('/buy/:gameID/', (req, res)=>{
-    User.findOneAndUpdate({username: app.locals.loggedUser},{$push: {gamesOwned: req.params.gameID}},{ new: true}, (err, foundUser)=>{
-        
-        res.redirect('/games')
-        
-        
-        console.log('Updated:', foundUser)
-    })
+app.get('/profile/:userID/update', (req,res)=>{
+    if (app.locals.loggedUser === req.params.userID){
+        User.findOne({username: req.params.userID}, (err, foundUser)=>{
+            res.render('Personal', {user: foundUser})
+        })
+    }else{
+        res.redirect(`/profile/${req.params.userID}`)
+    }
 })
+app.patch('/profile/:userID/update', (req,res)=>{
+        User.findOneAndUpdate({username: req.params.userID}, req.body, (err, foundUser)=>{
+            res.redirect(`/profile/${req.params.userID}`)
+        })
+})
+
+
 ///////////////////////////////////// EDIT PAGE
 
 
 app.get('/games/:gameID/edit', (req, res) => {
     if (app.locals.loggedUser === 'admin') {
         Game.findOne({ title: req.params.gameID }, (err, foundGame) => {
-            res.render('Edit', { game: foundGame, user: app.locals.loggedUser })
+            res.render('Edit', { game: foundGame})
         })
     } else if (app.locals.loggedUser !== 'admin') {
 
@@ -253,7 +356,10 @@ app.delete('/games/:gameID', (req, res) => {
     Game.findOneAndDelete({ title: req.params.gameID }, (err, foundGame) => {
         Review.deleteMany({ parent_product: foundGame.title }).then(() => {
             Dlc.deleteMany({ game: foundGame.title }).then(() => {
-                res.redirect('/games')
+                Achievement.deleteMany({parent_product: foundGame.title}).then(()=>{
+
+                    res.redirect('/games')
+                })
             })
         })
     })
@@ -269,6 +375,35 @@ app.delete('/reviews/:reviewID', (req, res) => {
     })
 })
 
+app.delete('/achievements/:achievementID', (req, res) => {
+    Achievement.findByIdAndRemove(req.params.achievementID, (err, foundAchievement) => {
+        console.log("Deleted: ", foundAchievement)
+        User.updateMany({ achievements: foundAchievement._id },{$pull: {achievements:{$in: [foundAchievement._id]}}},{ new: true}, (err, foundUser) => {
+            res.redirect(`/games`)
+            
+        })
+    })
+})
+
+app.delete('/dlc/:dlcID', (req, res) => {
+    Dlc.findByIdAndRemove(req.params.dlcID, (err, foundDlc) => {
+        console.log("Deleted: ", foundDlc)
+        User.updateMany({ dlcOwned: foundDlc._id },{$pull: {dlcOwned:{ $in: [foundDlc._id]}}}, { new: true},(err, foundUser) => {
+            res.redirect(`/games`)
+            
+        })
+    })
+})
+app.delete('/profile/:userID', (req, res) => {
+    User.findByIdAndRemove(req.params.userID, (err, foundUser) => {
+        console.log("Deleted: ", foundUser)
+        Review.deleteMany({ user: req.params.userID },(err, deletedReview) => {
+            res.redirect(`/login`)
+            
+        })
+    })
+})
+
 
 
 /////////////////////////////////////
@@ -280,3 +415,4 @@ app.listen(3000, () => {
 })
 
 
+////Test push/pull for profile arrays

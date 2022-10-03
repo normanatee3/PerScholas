@@ -8,6 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 }
 .side{
     display: flex;
@@ -21,24 +22,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
-h1 {
-    font-family: 'Righteous', cursive;
-    background: rgb(50, 43, 30);
-    margin: 0;
-    margin-bottom: .5em;
-    padding: 1em;
-    text-align: center;
-    border-radius: 15px;
-    width: 50%;
-}
-h2 {
-    text-align: center;
-    background-color: rgba(240, 248, 255, 0.6);
-    width: 100%;
-    padding: 1em;
-    border-radius: 5px;
 
-}
 .button {
     color: rgb(70, 95, 45);
     text-decoration: none;
@@ -67,16 +51,14 @@ h2 {
     font-size: 2em;
 }
 
-h3, p, h4{
-    color: ghostwhite;
-}
+
 li {
     list-style: none;
     color: ghostwhite;
     background-color: rgba(240, 248, 255, 0.6);
     width: 45%;
     padding: 1em;
-    margin: 1em;
+    margin: 0em;
     border-radius: 5px;
 }
 
@@ -123,15 +105,20 @@ form {
 }
 .gameBox {
     background-color: rgba(240, 248, 255, 0.6);
-    width: 50%;
+    width: 90%;
     margin: 1em;
     padding: 2em;
     border-radius: 5px;
 }
 .logout{
     position: absolute;
-    top: 15px;
+    top: 10px;
     right: 20px;
+}
+.profile{
+    position: absolute;
+    top: 10px;
+    left: 20px;
 }
 .gamePic{
     width: 100%;
@@ -145,4 +132,73 @@ form {
     position: absolute;
     top: 0;
     left: 0;
+}
+h1{
+    color: white;
+    background-color:rgb(70, 95, 45);
+    padding: 1em;
+    
+}
+.titleBanner{
+    position: relative;
+    top: 35px;
+    width: 100%;
+    text-align: center;
+}
+.smallBanner{
+    color: white;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.37);
+    text-shadow:  1px 1px 1px rgb(0, 0, 0),
+    1px 1px 2px rgb(128, 255, 0);
+    padding: 10px;
+    font-size: 32px;
+}
+.bigBanner{
+    color: white;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.37);
+    text-shadow:  1px 1px 1px rgb(0, 0, 0),
+    1px 1px 2px rgb(128, 255, 0);
+    padding: 10px;
+    font-size: 42px;
+}
+.tinyBanner{
+    color: white;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.37);
+    text-shadow:  1px 1px 1px rgb(0, 0, 0),
+    1px 1px 2px rgb(128, 255, 0);
+    padding: 10px;
+    font-size: 20px;
+}
+.fullPic{
+    width: 100vw;
+}
+.halfPic{
+    width: 50vw;
+}
+.weight{
+    font-weight: 600;
+}
+.subBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.subItem{
+    width: 45%;
+    margin-top: 10px;
+}
+.review{
+    width: 90vw;
+    margin: 25px;
+    color: black;
+    font-weight: 800;
+    font-size: 20px;
+    
 }

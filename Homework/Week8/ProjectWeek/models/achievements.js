@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const achievementSchema = new mongoose.Schema( {
-    title: {type:String,required:true},
+    title: {type:String,unique:true,required:true},
     unlock: {type:String,required:true},
     parent_product: {type:String,required:true},
     score: {type:Number,required:true},

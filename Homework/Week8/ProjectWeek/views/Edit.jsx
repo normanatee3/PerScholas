@@ -4,7 +4,7 @@ const DefaultLayout = require("./layouts/default");
 class Edit extends React.Component {
     render() {
         const { game } = this.props
-        const { user } = this.props
+        
         return (
             <DefaultLayout title="Edit Page">
 

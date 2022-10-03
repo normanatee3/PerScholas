@@ -7,7 +7,7 @@ class Login extends React.Component {
             <DefaultLayout title="NUMA">
 
                 <div className='bodyWide'>
-                <h2>EXISTING USER LOG IN</h2>
+                <h2 className='smallBanner'>EXISTING USER LOG IN</h2>
 
 
                     <form action="/login" method='POST'>

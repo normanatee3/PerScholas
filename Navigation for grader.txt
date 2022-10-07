@@ -1,6 +1,8 @@
 Navigation for Grading: 
 In case you cant find something easily.
 
+PROJECT 2 --- Homework/Week8/ProjectWeek
+
 Nike Mockup: Labs/Week2/Day1
 Restaurant Objects Mockup:Homework/Week2/Day2
 Tokyo Bikes:Homework/Week2/Day3

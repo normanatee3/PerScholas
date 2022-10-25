@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.moviePic {
+  height: 100px;
+}
+.movieBox{
+  outline: solid black 2px;
+  max-width: 50%;
+}
+.hide{
+  display: none;
+}

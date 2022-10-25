@@ -53,7 +53,6 @@ function SignUpForm({setUser}) {
 
     return (
         <div>
-            <img src="/images/coffee.png" className='App-logo' alt="" />
             <div className="form-container">
                 
                 <form

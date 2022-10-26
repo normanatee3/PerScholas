@@ -1,3 +1,6 @@
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import React from 'react'
 import LogInForm from '../components/LogInForm'
 import SignUpForm from '../components/SignUpForm'
@@ -7,17 +10,22 @@ function AuthPage({ user, setUser }) {
     const [showLogin, setShowLogin] = useState(true);
     return (
         <div>
-            <h3 onClick={() => setShowLogin(!showLogin)}>
-                {showLogin ?
-                    'SIGN UP'
-                    :
-                    'LOG IN'}
-            </h3>
+            <Container style={{backgroundColor: "slategrey"}} fluid>
+                <Row>
+                    <Col  as="h1" >MERNMOVIES</Col>
+                </Row>
+            </Container>
             {showLogin ?
                 <SignUpForm setUser={setUser} />
                 :
                 <LogInForm setUser={setUser} />
                 }
+            <h3 onClick={() => setShowLogin(!showLogin)}>
+                {showLogin ?
+                    'GO TO LOG IN'
+                    :
+                    'GO TO SIGN UP'}
+            </h3>
         </div>
     )
 }

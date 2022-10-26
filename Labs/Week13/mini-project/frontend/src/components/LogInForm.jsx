@@ -1,25 +1,32 @@
 import React from 'react';
-import {useState} from 'react';
+import { useState } from 'react';
 import * as usersService from '../utilities/users-service';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
-function LogInForm({setUser}) {
-    const [credentials, setCredentials] = useState({
-        email: '',
-        password: ''
-    });
+function LogInForm({ setUser }) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const [error, setError] = useState('');
 
-    const handleChange = (event) => {
-        setCredentials({...credentials, [event.target.name]: event.target.value});
-        setError('');
-    }
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
 
     const handleSubmit = async (event) => {
         // Prevent form from being submitted to the server
         event.preventDefault();
 
         try {
+            const credentials = {
+                email: email,
+                password: password
+            }
             // The promise returned by signUp service method will resolve to user object included in the payload of JSON Web Token (JWT)
             const user = await usersService.login(credentials);
             setUser(user);
@@ -32,11 +39,34 @@ function LogInForm({setUser}) {
         <div>
             <div className="form-container">
                 <form autoComplete="off" onSubmit={handleSubmit}>
-                    <label>Email</label>
-                    <input type="email" name="email" value={credentials.email} onChange={handleChange} required />
-                    <label>Password</label>
-                    <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-                    <button type="submit">Log in</button>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control
+                            type="email"
+                            placeholder="Enter email"
+                            onChange={(e) => {
+                                return handleEmailChange(e);
+                            }}
+                            value={email}
+                            required
+                        />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                            type="password"
+                            placeholder="Password"
+                            onChange={(e) => {
+                                return handlePasswordChange(e);
+                            }}
+                            value={password}
+                            required
+                        />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Log In
+                    </Button>
                 </form>
             </div>
             <p className="error-message">{error}</p>

@@ -5,6 +5,7 @@ const app = express()
 const mongoose = require('mongoose')
 // import env
 const dotenv = require('dotenv')
+const cors = require('cors')
 dotenv.config()
 // assign port from env
 const port = process.env.PORT
@@ -16,7 +17,7 @@ mongoose.connect(process.env.DATABASE).then(()=>{
 })
 
 // //////////Middleware
-
+app.use(cors())
 // logger
 app.use(morgan('dev'))
 // body parser

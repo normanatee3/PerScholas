@@ -2,7 +2,7 @@ import '../css/App.css';
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from 'react';
 import AuthPage from '../pages/AuthPage';
-import Navbar from './Navbar';
+import NavBar from './NavBar';
 import { getUser } from '../utilities/users-service';
 import HomePage from '../pages/HomePage';
 import ShopPage from '../pages/ShopPage';
@@ -14,6 +14,7 @@ function App() {
   const [user, setUser] = useState(getUser())
   const [movies, setMovies] = useState(null)
   const [genre, setGenre] = useState('Action')
+  const [activeMovie, setActiveMovie] = useState(null)
   const options = {
     method: 'GET',
     url: 'https://moviesdatabase.p.rapidapi.com/titles',
@@ -36,35 +37,38 @@ function App() {
     axios.request(options).then(function (response) {
       // console.log(response.data);
       const movieList = response.data
-      setMovies( movieList )
+      setMovies(movieList)
     }).catch(function (error) {
       console.error(error);
     });
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     getMovies()
   }, [])
 
 
 
   return (
-    <div className="App">
-      {
-        user ?
-          <>
-            <Navbar user={user} getMovies={getMovies} />
-            <Routes>
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/shop" element={<ShopPage movies={movies} getMovies={getMovies} />} />
-            </Routes>
-          </>
-          :
-          <>
-            <AuthPage setUser={setUser} />
-          </>
-      }
-    </div>
+    
+
+      <div data-url={`url('${activeMovie}')`} className="App">
+        {
+          user ?
+            <>
+              <NavBar user={user} getMovies={getMovies} />
+              <Routes>
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/shop" element={<ShopPage activeMovie={activeMovie} setActiveMovie={setActiveMovie} movies={movies} getMovies={getMovies} />} />
+              </Routes>
+            </>
+            :
+            <>
+              <AuthPage user={user} setUser={setUser} />
+            </>
+        }
+      </div>
+    
   );
 }
 

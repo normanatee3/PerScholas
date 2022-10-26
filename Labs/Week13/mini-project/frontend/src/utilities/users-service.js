@@ -12,6 +12,14 @@ export async function signUp(userData) {
     return response
 }
 
+export async function login(userData) {
+    const response = await usersAPI.login(userData);
+    // Persist the token to localStorage
+    const data = response.data
+    localStorage.setItem('data', JSON.stringify(data));
+    return getUser();
+}
+
 // get token from local
 
 export const getToken = () => {

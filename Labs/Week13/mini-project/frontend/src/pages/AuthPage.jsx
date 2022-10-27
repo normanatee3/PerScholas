@@ -6,7 +6,7 @@ import LogInForm from '../components/LogInForm'
 import SignUpForm from '../components/SignUpForm'
 import { useState } from 'react';
 
-function AuthPage({ user, setUser }) {
+function AuthPage({ setUser }) {
     const [showLogin, setShowLogin] = useState(true);
     return (
         <div>
@@ -16,9 +16,9 @@ function AuthPage({ user, setUser }) {
                 </Row>
             </Container>
             {showLogin ?
-                <SignUpForm setUser={setUser} />
-                :
                 <LogInForm setUser={setUser} />
+                :
+                <SignUpForm setUser={setUser} />
                 }
             <h3 onClick={() => setShowLogin(!showLogin)}>
                 {showLogin ?

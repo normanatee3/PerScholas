@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema(
     }
 )
 // Create a document middleware to encrypt the password
-userSchema.pre("save", async function (next){
-    if(!this.isModified("password")){
+userSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) {
         // move on
         next()
         // return early
@@ -31,6 +31,14 @@ userSchema.pre("save", async function (next){
     // Call the next middleware in the stack
     next()
 })
+
+// Create an instance method to compare password using bcryptjs
+userSchema.methods.comparePassword = async function (
+    plainText,
+    hashedPassword
+) {
+    return await bcrypt.compare(plainText, hashedPassword);
+};
 
 // Use mongoose and schema to create user model
 const User = mongoose.model("User", userSchema)

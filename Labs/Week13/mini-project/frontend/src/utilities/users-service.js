@@ -17,8 +17,16 @@ export async function login(userData) {
     // Persist the token to localStorage
     const data = response.data
     localStorage.setItem('data', JSON.stringify(data));
-    return getUser();
+    return response
 }
+
+
+// Create a function to logout
+export const logOut = () => {
+    localStorage.removeItem("data");
+};
+
+
 
 // get token from local
 

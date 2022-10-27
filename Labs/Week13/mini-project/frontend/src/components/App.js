@@ -15,6 +15,7 @@ function App() {
   const [movies, setMovies] = useState(null)
   const [genre, setGenre] = useState('Action')
   const [activeMovie, setActiveMovie] = useState(null)
+  const [array, setArray] = useState([])
   const options = {
     method: 'GET',
     url: 'https://moviesdatabase.p.rapidapi.com/titles',
@@ -43,6 +44,15 @@ function App() {
     });
   }
 
+  const pushMovie = () => {
+    setArray(oldArray => [...oldArray, activeMovie])
+}
+
+const deleteMovie = (e) =>{
+  const title = e.target.getAttribute('title')
+  setArray(array.filter(item=>item.Title !== title))
+}
+
   useEffect(() => {
     getMovies()
   }, [])
@@ -52,19 +62,21 @@ function App() {
   return (
     
 
-      <div data-url={`url('${activeMovie}')`} className="App">
+      <div className="App">
         {
           user ?
             <>
-              <NavBar user={user} getMovies={getMovies} />
+              <NavBar setUser={setUser} user={user} getMovies={getMovies} />
               <Routes>
                 <Route path="/home" element={<HomePage />} />
-                <Route path="/shop" element={<ShopPage activeMovie={activeMovie} setActiveMovie={setActiveMovie} movies={movies} getMovies={getMovies} />} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/shop" element={<ShopPage array={array} pushMovie={pushMovie} activeMovie={activeMovie} setActiveMovie={setActiveMovie} movies={movies} getMovies={getMovies} />} />
               </Routes>
+              
             </>
             :
             <>
-              <AuthPage user={user} setUser={setUser} />
+              <AuthPage setUser={setUser} />
             </>
         }
       </div>

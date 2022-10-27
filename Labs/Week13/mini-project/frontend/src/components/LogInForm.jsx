@@ -23,15 +23,12 @@ function LogInForm({ setUser }) {
         event.preventDefault();
 
         try {
-            const credentials = {
-                email: email,
-                password: password
-            }
+            
             // The promise returned by signUp service method will resolve to user object included in the payload of JSON Web Token (JWT)
-            const user = await usersService.login(credentials);
-            setUser(user);
-        } catch {
-            setError('Log in failed! Try again.');
+            const user = await usersService.login({email, password});
+            setUser(user.data);
+        } catch (error) {
+            setError(error.message);
         }
     }
 

@@ -64,17 +64,23 @@ exports.getUser = async (req, res) => {
 // Route for logging in user
 exports.login = async (req, res) => {
     try {
+
+        const { email, password } = req.body
+
+        // Assuming email or password was not provided
+        if (!email || !password) {
+            throw new Error("Email and password are required fields");
+        }
+
         // Find user by email address
-        const user = await User.findOne({email: req.body.email}).select('+password');
+        const user = await User.findOne({ email }).select('+password');
 
         // Throw error if user not found
-        if(!user) throw new Error();
-        // console.log(req.body.password, user.password, user)
-        // Check passwords if they match
-        const match = await bcrypt.compare(req.body.password, user.password);
-
-        // Throw error if match not found
-        if(!match) throw new Error();
+        if (
+            !user ||
+            !(await user.comparePassword(password, user.password))
+        ) {throw new Error("Invalid email or password");
+        }
         const newUser = ({
             name: user.name,
             email: user.email
@@ -95,18 +101,8 @@ exports.login = async (req, res) => {
             },
         })
         // res.status(200).json(getUser(user));
-    } catch(e) {
-        console.log(e)
-        res.status(400).json({msg: e.message, reason: 'Bad credentials!'})
+    } catch (e) {
+
+        res.status(400).json({ msg: e.message, reason: 'Bad credentials!' })
     }
 }
-
-// Helper functions
-// createJWT = (user) => {
-//     return jwt.sign(
-//         // Data payload
-//         {user},
-//         process.env.JWT_SECRET_KEY,
-//         {expiresIn: process.env.JWT_EXPIRATION_DATE}
-//     )
-// }

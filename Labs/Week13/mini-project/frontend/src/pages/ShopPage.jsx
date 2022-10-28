@@ -4,12 +4,11 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Image from 'react-bootstrap/Image'
 
 import React from 'react'
 
-function ShopPage({ array, pushMovie, getMovies, movies, activeMovie, setActiveMovie }) {
-    console.log(movies)
+function ShopPage({  buyMovie, rentMovie, getMovies, movies }) {
+    // console.log(movies)
     const viewSwap = (key) => {
         let allMovies = document.querySelectorAll('.g-4')
         let movie = document.getElementById(`${key}`)
@@ -19,16 +18,11 @@ function ShopPage({ array, pushMovie, getMovies, movies, activeMovie, setActiveM
         movie.classList.toggle('hide')
 
     }
-    const rentMovie = (one) => {
-        setActiveMovie(one, one.price = "$9.99").then(
+    
 
-            pushMovie()
-        )
-    }
+    // const buyMovie = (one) => {
 
-    const buyMovie = (one) => {
-
-    }
+    // }
 
     return (
         <div className='page'>
@@ -39,11 +33,7 @@ function ShopPage({ array, pushMovie, getMovies, movies, activeMovie, setActiveM
             </Container>
 
 
-            {array.length > 0 ?
-                <>
-
-                </>
-                : null}
+            
 
             {
                 movies ?
@@ -68,8 +58,8 @@ function ShopPage({ array, pushMovie, getMovies, movies, activeMovie, setActiveM
                                                 <Container className='mt-auto'>
 
                                                     <Button onClick={() => viewSwap(`${i}`)} variant="secondary">More Info</Button>{' '}
-                                                    <Button onClick={() => rentMovie(movie)} variant="primary">Rent</Button>{' '}
-                                                    <Button variant="success">Buy Now</Button>{' '}
+                                                    <Button onClick={() => rentMovie(movies.results[i])} variant="primary">Rent</Button>{' '}
+                                                    <Button onClick={() => buyMovie(movies.results[i])} variant="success">Buy Now</Button>{' '}
                                                 </Container>
                                             </Card.ImgOverlay>
                                         </Card>
@@ -82,7 +72,7 @@ function ShopPage({ array, pushMovie, getMovies, movies, activeMovie, setActiveM
                         {/* Single view */}
                         {movies.results.map((movie, i) => {
                             return (
-                                <div className="movie hide" id={`${i}`}>
+                                <div className="movie hide" key={`${i}`} id={`${i}`}>
                                     <Card>
 
                                         <Card.Header className='cardHeader'>
@@ -106,8 +96,8 @@ function ShopPage({ array, pushMovie, getMovies, movies, activeMovie, setActiveM
                                                     {movie.genres.genres.slice(0,3).map((genre, i) => {
                                                         
                                                         return (
-                                                            <ListGroup.Item className="genre">
-                                                                <text>{genre.text}</text> 
+                                                            <ListGroup.Item key={`${i}`} className="genre">
+                                                                {genre.text}
                                                             </ListGroup.Item>
                                                         );
                                                     })}
@@ -116,8 +106,8 @@ function ShopPage({ array, pushMovie, getMovies, movies, activeMovie, setActiveM
                                                     <Card.Body>
                                                         <Card.Text id="info">{movie.plot.plotText.plainText}</Card.Text>
                                                         <Container className='mt-auto'>
-                                                            <Button onClick={() => rentMovie(movie)} variant="primary">Rent</Button>{' '}
-                                                            <Button variant="success">Buy Now</Button>{' '}
+                                                            <Button onClick={() => rentMovie(movies.results[i])} variant="primary">Rent</Button>{' '}
+                                                            <Button onClick={() => buyMovie(movies.results[i])} variant="success">Buy Now</Button>{' '}
                                                         </Container>
                                                     </Card.Body>
                                                 </Card>

@@ -4,10 +4,16 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-
+import Spinner from 'react-bootstrap/Spinner';
+import Pagination from 'react-bootstrap/Pagination'
 import React from 'react'
+import Form from 'react-bootstrap/Form';
 
-function ShopPage({  buyMovie, rentMovie, getMovies, movies }) {
+
+
+// shop component
+
+function ShopPage({ buyMovie, rentMovie, getMovies, movies, setPage, setGenre }) {
     // console.log(movies)
     const viewSwap = (key) => {
         let allMovies = document.querySelectorAll('.g-4')
@@ -18,11 +24,19 @@ function ShopPage({  buyMovie, rentMovie, getMovies, movies }) {
         movie.classList.toggle('hide')
 
     }
-    
 
-    // const buyMovie = (one) => {
+    // pagination
+    let active;
+    let items = [];
+    for (let number = 1; number <= 5; number++) {
+        items.push(
+            <Pagination.Item onClick={() => setPage(number)} key={number} active={number === active}>
+                {number}
+            </Pagination.Item>,
+        );
+    }
 
-    // }
+
 
     return (
         <div className='page'>
@@ -33,11 +47,22 @@ function ShopPage({  buyMovie, rentMovie, getMovies, movies }) {
             </Container>
 
 
-            
+
 
             {
                 movies ?
                     <>
+                        <Pagination className='g-4' bsPrefix='pagination pagination-lg justify-content-center' size="lg">
+                            <Pagination.Item disabled>{'Page:'}</Pagination.Item>
+                            {items}
+                        </Pagination>
+                        <Form.Select onChange={(e) => setGenre(e.target.value)} className='g-4' aria-label="Default select example">
+                            <option value="Animation">Animation</option>
+                            <option value="Action">Action</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Adventure">Adventure</option>
+                        </Form.Select>
                         <Row xs={1} md={2} className="g-4">
                             {movies.results.map((movie, i) => {
                                 return <div className='moviePopOut' key={`${i}`}>
@@ -59,7 +84,7 @@ function ShopPage({  buyMovie, rentMovie, getMovies, movies }) {
 
                                                     <Button onClick={() => viewSwap(`${i}`)} variant="secondary">More Info</Button>{' '}
                                                     <Button onClick={() => rentMovie(movies.results[i])} variant="primary">Rent</Button>{' '}
-                                                    <Button onClick={() => buyMovie(movies.results[i])} variant="success">Buy Now</Button>{' '}
+                                                    <Button onClick={() => buyMovie(movies.results[i])} variant="success">Buy {`$${(((Math.floor((movie.releaseYear.year - 1970) / 10) + 1) * 5) - 0.01)}`}</Button>{' '}
                                                 </Container>
                                             </Card.ImgOverlay>
                                         </Card>
@@ -68,6 +93,7 @@ function ShopPage({  buyMovie, rentMovie, getMovies, movies }) {
 
                                 </div>
                             })}
+
                         </Row>
                         {/* Single view */}
                         {movies.results.map((movie, i) => {
@@ -77,15 +103,15 @@ function ShopPage({  buyMovie, rentMovie, getMovies, movies }) {
 
                                         <Card.Header className='cardHeader'>
 
-                                        <img
-                                            onClick={() => viewSwap(`${i}`)}
-                                            className="icon"
-                                            src="https://cdn-icons-png.flaticon.com/512/2976/2976286.png"
-                                            alt=""
+                                            <img
+                                                onClick={() => viewSwap(`${i}`)}
+                                                className="icon"
+                                                src="https://cdn-icons-png.flaticon.com/512/2976/2976286.png"
+                                                alt=""
                                             />
-                                        <h1>{movie.titleText.text}</h1>
+                                            <h1>{movie.titleText.text}</h1>
 
-                                            </Card.Header>
+                                        </Card.Header>
                                         <div className="textbox">
                                             <Card>
                                                 <Card.Img style={{ width: "350px" }} src={movie.primaryImage.url} />
@@ -93,10 +119,10 @@ function ShopPage({  buyMovie, rentMovie, getMovies, movies }) {
 
                                             <div className="smalltextbox">
                                                 <ListGroup horizontal className="genres">
-                                                    {movie.genres.genres.slice(0,3).map((genre, i) => {
-                                                        
+                                                    {movie.genres.genres.slice(0, 3).map((genre, i) => {
+
                                                         return (
-                                                            <ListGroup.Item key={`${i}`} className="genre">
+                                                            <ListGroup.Item style={{ width: "fit-content" }} key={`${i}`} className="genre">
                                                                 {genre.text}
                                                             </ListGroup.Item>
                                                         );
@@ -107,7 +133,7 @@ function ShopPage({  buyMovie, rentMovie, getMovies, movies }) {
                                                         <Card.Text id="info">{movie.plot.plotText.plainText}</Card.Text>
                                                         <Container className='mt-auto'>
                                                             <Button onClick={() => rentMovie(movies.results[i])} variant="primary">Rent</Button>{' '}
-                                                            <Button onClick={() => buyMovie(movies.results[i])} variant="success">Buy Now</Button>{' '}
+                                                            <Button onClick={() => buyMovie(movies.results[i])} variant="success">Buy {`$${(((Math.floor((movie.releaseYear.year - 1970) / 10) + 1) * 5) - 0.01)}`}</Button>{' '}
                                                         </Container>
                                                     </Card.Body>
                                                 </Card>
@@ -120,7 +146,10 @@ function ShopPage({  buyMovie, rentMovie, getMovies, movies }) {
                     </>
                     :
                     <>
-                        <h3>*Products*</h3>
+
+                        <Spinner animation="border" role="status">
+                        </Spinner>
+                        <span>Loading...</span>
                     </>
             }
 

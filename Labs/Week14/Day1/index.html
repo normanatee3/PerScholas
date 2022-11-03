@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="box">
+        <h1>1.What is my Subject Focus?</h1>
+        <h2>Matrix/Matrices</h2>
+        <h1>But what exactly is a matrix</h1>
+        <h3>a matrix (also known as a 2D or multidimensional array), is a container for many values.</h3>
+        <h3>one example would be a tic-tac-toe board, a 3x3 matrix</h3>
+        <img src="http://i.stack.imgur.com/p8t8I.png" alt="" class="flick">
+        <hr>
+        <h3>
+            or to better visualize it as you might see in code:<br /><br /><br />
+
+        </h3>
+        <img src="/3x3.png" alt="" class="flick">
+        <hr>
+        <h1>2.Why is this a Critical Part of the Interviewing Process? </h1>
+        <blockquote cite="https://news.mit.edu/2013/explained-matrices-1206">
+            One of the areas of computer science in which matrix multiplication is particularly useful is graphics, since a digital image is basically a matrix to begin with: <br> The rows and columns of the matrix correspond to rows and columns of pixels, and the numerical entries correspond to the pixels’ color values. <br> Decoding digital video, for instance, requires matrix multiplication; earlier this year, MIT researchers were able to build one of the first chips to implement the new high-efficiency video-coding standard for ultrahigh-definition TVs, in part because of patterns they discerned in the matrices it employs. <br><br>
+
+In the same way that matrix multiplication can help process digital video, it can help process digital sound.<br> A digital audio signal is basically a sequence of numbers, representing the variation over time of the air pressure of an acoustic audio signal. <br><br>
+<cite>Explained: Matrices</cite> -Larry Hardesty, MIT News Office
+        </blockquote>
+        <hr>
+        <h3>Other Major use cases of matrices include:
+            <ul>
+                <li>Machine learning</li>
+                <li>AI ( particularly in self driving cars)</li>
+                <li>2D and 3D Graphics</li>
+            </ul>
+            In the case of graphics we need them to perform transformations such as scaling, rotation, and translation, on a potentially huge number of points and quickly within a 2D or 3D space.
+            
+            <br><br>
+            lets say you have a 3D wheel made up of 100 triangles, each having 3 points, all relative to the origin (0,0,0) or "center" of the wheel. <br><br>
+            <img src="https://cdn.pixabay.com/photo/2018/01/11/06/23/car-3075497_960_720.jpg" alt="" class="flick"><br>
+            in order to fixate or anchor this wheel to the body of your car <br> you will need to *translate* all of the points in your wheels 3-dimensional array relative to the car. <br>
+            
+            in fact, even chains of transformations (translate-> rotate-> scale-> translate) can be combined into a single matrix that does it all in one step.
+        </h3>
+        <hr>
+        <h1>3&5 How can I leverage this tool to increase my abilities as an Engineer and why do we need it?</h1>
+        <h4>
+            Understanding matrices is essential to understanding graphics and many other complex fields of computer science. It opens the doors to understanding Camera coordination, rendering, model manipulation, deep learning, likely a great many of the future advancements yet to come in technology. Graphics boards have specialized hardware for doing matrix math, making this blindingly efficient - so you can’t really do 3D graphics without matrices. They sit as an anchor of knowledge for many directions you may want to take your career/business. <br>
+        </h4>
+        <hr>
+        <h1>4.Sample Interview Question Of my Subject.</h1>
+        <h3>Find the number of negative numbers in a column-wise / row-wise sorted matrix M[][]. Suppose M has n rows and m columns.</h3>
+        <br><br>
+        <img src="/solution.png" alt="" class="flick2">
+    </div>
+    <script src="/app.js" async defer></script>
+</body>
+
+</html>

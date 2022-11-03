@@ -1,0 +1,32 @@
+-------------What is a Matrix?
+
+Matrices (sometimes called 2D or multidimensional arrays) are containers for many values. For example, a tic tac toe board is a 2D matrix of 3 rows and 3 columns, each holding a character (usually 'x', 'o', and ' '). Matrixes have all the same properties as Arrays and are indexed in the same manner, just using multiple "indexes", one for each row, column, etc.
+
+--------------Why are they used?
+
+Among the most common tools in electrical engineering and computer science are rectangular grids of numbers known as matrices. The numbers in a matrix can represent data, and they can also represent mathematical equations. In many time-sensitive engineering applications, multiplying matrices can give quick but good approximations of much more complicated calculations.
+
+---
+
+One of the areas of computer science in which matrix multiplication is particularly useful is graphics, since a digital image is basically a matrix to begin with: The rows and columns of the matrix correspond to rows and columns of pixels, and the numerical entries correspond to the pixels’ color values. Decoding digital video, for instance, requires matrix multiplication; earlier this year, MIT researchers were able to build one of the first chips to implement the new high-efficiency video-coding standard for ultrahigh-definition TVs, in part because of patterns they discerned in the matrices it employs.
+
+In the same way that matrix multiplication can help process digital video, it can help process digital sound. A digital audio signal is basically a sequence of numbers, representing the variation over time of the air pressure of an acoustic audio signal. Many techniques for filtering or compressing digital audio signals, such as the Fourier transform, rely on matrix multiplication.
+
+----------What are they used for?
+
+machine learning, ai (self driving cars), deep learning, image processing (RxCx3 channels r/g/b value=color weight)
+
+Firstly, 3D graphics. In 3D graphics you need to quickly “transform” points in 3D space so that you know where to draw them on the screen. Typically, there’s a whole hierarchy of “frames of reference.” For example, if you’re drawing a car, it will probably have 4 wheels. These will all have the same data describing their points, with the origin (the 0,0,0 point) being the wheel’s centre. You’ll need a transform to get from this frame of reference to the car’s frame of reference - so (say) the front left wheel will have all its points moved forwards a lot and left a bit. You’ll need to rotate them first around the wheel’s origin to make the wheel turn. Then you need to transform all those wheel points, and car body’s points, again, to get them into “world space” - where they are in the game world. Then you’ll need to transform again to get them into camera space - where they are relative to the camera. Finally you’ll need to do the “perspective transform” - turning them into 2D points on the screen ready for drawing.
+
+You can do all these “affine transforms” with matrices - a 3D matrix can represent any translation (moving) of a point, any rotation and any scaling (making bigger or smaller). Even better, if you have a chain of transforms, no matter how long, they can all be combined into one matrix that does the whole thing in one step. I’ve been doing this for 30 years and I still think this is magic. Graphics boards have specialised hardware for doing matrix maths, making this blindingly efficient (see any modern game for just how efficient!) - so you can’t really do 3D graphics without matrices.
+
+
+
+------- Matrix interview questions?
+Generate a list of possible words from a character matrix
+
+(solve boggle)
+
+Given a matrix, create a function that outputs the matrix in spiral order, i.e. unraveling. Remove each number once it has been put out.
+
+(solve spiral matrix)

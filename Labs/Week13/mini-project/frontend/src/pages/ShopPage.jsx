@@ -40,7 +40,7 @@ function ShopPage({ buyMovie, rentMovie, getMovies, movies, setPage, setGenre })
 
     return (
         <div className='page'>
-            <Container style={{ backgroundColor: "green" }} fluid>
+            <Container style={{ backgroundColor: "slategray" }} fluid>
                 <Row>
                     <Col as="h1" >SHOP</Col>
                 </Row>
@@ -52,25 +52,50 @@ function ShopPage({ buyMovie, rentMovie, getMovies, movies, setPage, setGenre })
             {
                 movies ?
                     <>
-                        <Pagination className='g-4' bsPrefix='pagination pagination-lg justify-content-center' size="lg">
-                            <Pagination.Item disabled>{'Page:'}</Pagination.Item>
-                            {items}
-                        </Pagination>
-                        <Form.Select onChange={(e) => setGenre(e.target.value)} className='g-4' aria-label="Default select example">
-                            <option value="Animation">Animation</option>
-                            <option value="Action">Action</option>
-                            <option value="Adventure">Adventure</option>
-                            <option value="Adventure">Adventure</option>
-                            <option value="Adventure">Adventure</option>
-                        </Form.Select>
+                    <br/>
+                        <Container fluid className='g-4 d-flex justify-content-around'>
+                            <Row>
+                            <Col>
+                            <Pagination className='g-4' bsPrefix='pagination justify-content-center' size="md">
+                                <Pagination.Item disabled>{'Page:'}</Pagination.Item>
+                                {items}
+                            </Pagination>
+                            </Col>
+                            <Col>
+                            Select a Genre:
+                            </Col>
+                            <Col>
+                            <Form.Select onChange={(e) => setGenre(e.target.value)} className='g-4' aria-label="Default select example">
+                                <option value="Animation">Animation</option>
+                                <option value="Action">Action</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Biography">Biography</option>
+                                <option value="Crime">Crime</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Family">Family</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="History">History</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Musical">Musical</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Sci-Fi">Sci-Fi</option>
+                                <option value="Sport">Sport</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Western">Western</option>
+                            </Form.Select>
+                            </Col>
+                            </Row>
+                        </Container>
+                        <br/>
                         <Row xs={1} md={2} className="g-4">
                             {movies.results.map((movie, i) => {
                                 return <div className='moviePopOut' key={`${i}`}>
                                     <Col className="movieBox">
                                         <Card key={`${i}`} className="bg-dark text-white">
-                                            <Card.Img style={{ height: '500px', opacity: ".35" }} src={movie.primaryImage.url} alt="Card image" />
+                                            <Card.Img style={{ height: '600px', opacity: ".35" }} src={movie.primaryImage.url} alt="Card image" />
                                             <Card.ImgOverlay className='d-flex flex-column'>
-                                                <Card.Title as="h1">
+                                                <Card.Title as="h1" className='blackGlow'>
 
                                                     {movie.titleText.text}
 
@@ -128,6 +153,9 @@ function ShopPage({ buyMovie, rentMovie, getMovies, movies, setPage, setGenre })
                                                         );
                                                     })}
                                                 </ListGroup>
+                                                <Card.Text>
+                                                    Released in {movie.releaseDate.year}
+                                                </Card.Text>
                                                 <Card>
                                                     <Card.Body>
                                                         <Card.Text id="info">{movie.plot.plotText.plainText}</Card.Text>

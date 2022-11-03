@@ -1,0 +1,15 @@
+.box{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+hr{
+    width: 100vw;
+}
+.flick{
+    height: 300px;
+}
+.flick2{
+    height: 600px;
+}

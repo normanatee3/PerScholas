@@ -18,3 +18,13 @@ Javascript Functions {maxOf2Nums}: Homework/Week1/Day4
 Javascript Total Recall {A.Q+A}:Homework/Week3/Day1
 Space Battle: Labs/Week4/Day1
 Radio Object: Labs/Week4/Day3
+
+-------------------------------
+
+99 Bottles: Homework/Week6/Day3
+Pokedex: Homework/Week7/Day1
+Captains Log: Homework/Week7/Day3
+Express 2-Models: Labs/Week7/Day4
+Korilla: Labs/Week9/Day3
+State Homework: Homework/Week9/Day3
+API Homework: Homework/Week9/Day4

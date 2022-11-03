@@ -84,3 +84,13 @@ footer a {
     font-weight: 600;
 
 }
+.blackGlow{
+    
+    text-shadow: 2px 2px 8px #000000,
+    3px 5px 10px #000000,
+    -3px -5px 10px #000000,
+    3px -5px 10px #000000,
+    -3px 5px 10px #000000
+    ;    
+
+}
